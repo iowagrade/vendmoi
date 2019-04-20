@@ -69,11 +69,12 @@ function main() {
     var arWindowHeight = 256;
 
     window.innerHeight = arWindowHeight;
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(window.innerWidth*0.7, window.innerHeight);
     console.log("width = " + window.innerWidth + " height = " + window.innerHeight);
   //  renderer.domElement.style.position = 'absolute'
   //  renderer.domElement.style.top = '100px'
   //  renderer.domElement.style.left = '0px'
+  renderer.domElement.style.overflow = 'hidden';
    //  document.body.appendChild(renderer.domElement);
     //renderer.domElement.zIndex = '1000';
    canvasdiv.appendChild(renderer.domElement);

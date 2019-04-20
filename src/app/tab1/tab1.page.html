@@ -8,14 +8,18 @@
 
 <ion-content>
   <iframe class="theCanvas" src="../../assets/iframe-ar.html"></iframe>
-  <ion-card class="welcome-card">
+  <ion-button class="button" expand="block" ng-model="flowersToggle" ng-click="toggleFlowers(flowersToggle)" ng-class="(flowersToggle == 1)?'button-assert':'button-positive'">Flowers</ion-button>
+  <ion-button class="button" expand="block" ng-model="ediblesToggle" ng-click="toggleEdibles(ediblesToggle)" ng-class="(ediblesToggle == 1)?'button-assert':'button-positive'">Edibles</ion-button>
+  <ion-button class="button" expand="block" ng-model="extractsToggle" ng-click="toggleExtracts(extractsToggle)" ng-class="(extractsToggle == 1)?'button-assert':'button-positive'">Extracts</ion-button>
+
+   <ion-card class="welcome-card">
       <ion-img src="/assets/shapes.svg"></ion-img>
       <ion-card-header>
         <ion-card-subtitle>Get Started</ion-card-subtitle>
         <ion-card-title>Welcome to Ionic</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <p>Now that your fucking app has been shit upon, you'll want to show the iframe.</p>
+        <p>Now that your fucking app was shit upon, you'll want to show the iframe.</p>
       </ion-card-content>
     </ion-card>
     <ion-card>

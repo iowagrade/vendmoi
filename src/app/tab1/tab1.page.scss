@@ -2,3 +2,15 @@
   max-height: 35vh;
   overflow: hidden;
 }
+.theCanvas {
+  position: relative;
+  overflow: hidden;
+  //display: block;
+  z-index: 10000;
+  width: 100%;
+  height: 262px;
+  border: solid;
+  border-width: 2px;
+  color: #00FF00;
+  //background-color: transparent;
+}

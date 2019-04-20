@@ -1,0 +1,21 @@
+
+<ion-header>
+    <ion-navbar>
+        <ion-title>Product Detail</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="home" padding>
+    <div *ngIf="product" class="selection">
+        <ion-card>
+
+        <ion-item>
+            <ion-icon name="document" item-left></ion-icon>
+            <h2>Overview</h2>
+            <p class="item-description">{{product.name}}</p>
+            {{product.description}}
+        </ion-item>
+
+        </ion-card>
+    </div>
+</ion-content>
