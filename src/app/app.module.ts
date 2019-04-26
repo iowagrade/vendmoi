@@ -11,12 +11,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ProductService } from './providers/product-service';
+import { CartItemService } from './providers/cart-service';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [FormsModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
+    CartItemService,
     ProductService,
     StatusBar,
     SplashScreen,

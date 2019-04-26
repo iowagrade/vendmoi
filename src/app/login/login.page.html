@@ -1,8 +1,21 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar style="--background: rgb(44, 70, 105)">
+      <ion-buttons>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/home" style="color:rgb(203, 177, 131)"></ion-back-button>
+        </ion-buttons>
+          <ion-button slot="secondary">
+          <ion-icon slot="icon-only" name="menu" style="color:rgb(203, 177, 131)"></ion-icon>
+        </ion-button>
+        <ion-title>
+          <img src="..\..\assets\logoName-01.jpg">
+        </ion-title>
+        <ion-button slot="end" tappable routerLink="">
+            <ion-icon slot="icon-only" name="home" style="color:rgb(203, 177, 131)"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content>
 

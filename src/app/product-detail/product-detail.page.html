@@ -1,12 +1,23 @@
-<ion-header no-border>
-  <ion-toolbar color='primary'>
+<ion-header>
+  <ion-toolbar style="--background: rgb(44, 70, 105)(0.172, 0.274, 0.411)">
+    <ion-buttons>
       <ion-buttons slot="start">
-        <ion-back-button defaultHref="/home"></ion-back-button>
+        <ion-back-button defaultHref="/home" style="color:rgb(203, 177, 131)"></ion-back-button>
       </ion-buttons>
-      <ion-title>Product Detail</ion-title>
+        <ion-button slot="secondary">
+        <ion-icon slot="icon-only" name="menu" style="color:rgb(203, 177, 131)"></ion-icon>
+      </ion-button>
+      <ion-title>
+        <img src="..\..\assets\logoName-01.jpg">
+      </ion-title>
+      <ion-button slot="end" tappable routerLink="/shopping-cart/">
+        <ion-badge *ngIf="4 > 0">{{ qtyInCart }}</ion-badge>
+        <ion-icon slot="icon-only" name="cart" style="color:rgb(203, 177, 131)"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
+  
 <ion-content no-bounce>
     <ion-card *ngIf="product">
        <!-- <ion-item class="avatar">
@@ -22,10 +33,32 @@
         </ion-item>
                 
         <ion-card-content>
-          <p>{{ product?.description }}</p>
+          <h1>{{product.name}}</h1>
+          <p>{{product.description}}</p>
+          <p>THC {{product.THC}}</p>
+          <p>CBD {{product.CBD}}</p>
+          <p>Manufacturer {{product.mnf}}</p>
+          <p>Price {{product.priceString}}</p>
+          <ion-buttons>
+            <ion-button (click)=addToCart()>Add to Cart +</ion-button>
+            <ion-button>{{qtyInCart}}</ion-button>
+          </ion-buttons>
         </ion-card-content>
       
-        <ion-row>
+      <!--
+        'id': string;
+        'description': string;
+        'name': string;
+        'CBD': string;
+        'THC': string;
+        "rating": string;
+        "price": string;
+        "type": string;
+        "mnf": string;
+        "img1": string;
+      -->      
+      
+      <ion-row>
           <ion-item>
           <ion-button icon-left clear small class="action-button">
             <ion-icon name="thumbs-up"></ion-icon>

@@ -1,9 +1,41 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>shoppingCart</ion-title>
+  <ion-toolbar style="--background: rgb(44, 70, 105)">
+    <ion-buttons>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home" style="color:rgb(203, 177, 131)"></ion-back-button>
+      </ion-buttons>
+        <ion-button slot="secondary">
+        <ion-icon slot="icon-only" name="menu" style="color:rgb(203, 177, 131)"></ion-icon>
+      </ion-button>
+      <ion-title>
+        <img src="..\..\assets\logoName-01.jpg">
+      </ion-title>
+      <ion-button slot="end" tappable routerLink="">
+          <ion-icon slot="icon-only" name="home" style="color:rgb(203, 177, 131)"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<ion-item>
+  hello shopper.  Your total Cost = {{ totalCost | currency:'USD':'symbol' }}.
+</ion-item>
+
+<ion-list>
+  <div *ngFor="let item of cartProducts" detail="true">
+    <ion-card>
+      <ion-card-content>
+        <ion-item class="item-avatar">
+          <img src="..\..\assets\imgs\{{item.img1}}">
+        </ion-item>
+        <h3>{{item.name}}</h3>
+        <p>THC {{item.THC}}</p>
+        <p>CBD {{item.CBD}}</p>
+        <p>{{item.priceString}}</p>
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-list>
 
 </ion-content>

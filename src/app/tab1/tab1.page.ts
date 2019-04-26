@@ -12,15 +12,16 @@ export class Tab1Page {
 
   products: Product[];
   
-  flowersToggle: boolean;
-  ediblesToggle: boolean;
-  extractsToggle: boolean;
+  arToggle: boolean = false;
+  flowersToggle: boolean = true;
+  ediblesToggle: boolean = true;
+  extractsToggle: boolean = true;
 
   constructor(/*private platform: Platform,*/ public productService: ProductService) {
 
-    this.extractsToggle = true;
-    this.flowersToggle = true;
-    this.ediblesToggle = true;
+  //  this.extractsToggle = true;
+  //  this.flowersToggle = true;
+  //  this.ediblesToggle = true;
 
     // if (Capacitor.platform === 'web') {
       // this.testPluginWeb();
@@ -38,25 +39,20 @@ export class Tab1Page {
     this.productService.getAllProducts();
   };
 
+  toggleAR() {
+    this.arToggle = !this.arToggle;
+  }
+ 
   toggleFlowers() {
     this.flowersToggle = !this.flowersToggle;
   }
-  getFlowersToggle() {
-    return this.flowersToggle;
-  }
-
+ 
   toggleEdibles() {
     this.ediblesToggle = !this.ediblesToggle;
   }
-  getEdiblesToggle() {
-    return this.ediblesToggle;
-  }
-
+ 
   toggleExtracts() {
     this.extractsToggle = !this.extractsToggle;
-  }
-  getExtractsToggle() {
-    return this.extractsToggle;
   }
 
 }
