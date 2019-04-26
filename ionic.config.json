@@ -1,6 +1,8 @@
 {
   "name": "vendMoi",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "ce7ba2dc"
 }
