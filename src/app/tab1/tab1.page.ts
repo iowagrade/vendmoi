@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { ProductService, Product } from '../providers/product-service';
+import { CartItemService, CartItem } from '../providers/cart-service';
 
 @Component({
   selector: 'app-tab1',
@@ -8,16 +9,18 @@ import { ProductService, Product } from '../providers/product-service';
   styleUrls: ['tab1.page.scss']
 })
 
-export class Tab1Page {
+export class Tab1Page implements OnInit {
 
   products: Product[];
+  ci: CartItem;
+  qtyItems: number;
   
   arToggle: boolean = false;
   flowersToggle: boolean = true;
   ediblesToggle: boolean = true;
   extractsToggle: boolean = true;
 
-  constructor(/*private platform: Platform,*/ public productService: ProductService) {
+  constructor(/*private platform: Platform,*/public cartItemService: CartItemService,  public productService: ProductService) {
 
   //  this.extractsToggle = true;
   //  this.flowersToggle = true;
@@ -30,6 +33,14 @@ export class Tab1Page {
       // this.testPluginNative();
     // }
     this
+    .cartItemService
+    .cartItemsData
+    //.subscribe((cartItems: CartItem[]) => {
+    //  this.cartItems = cartItems;
+    //});
+    //this.cartItemService.getAllCartItems();
+
+    this
       .productService
       .productsData
       .subscribe((products: Product[]) => {
@@ -38,6 +49,10 @@ export class Tab1Page {
 
     this.productService.getAllProducts();
   };
+
+  ngOnInit() {
+      this.qtyItems = this.cartItemService.getQtyCartItems();
+  }
 
   toggleAR() {
     this.arToggle = !this.arToggle;

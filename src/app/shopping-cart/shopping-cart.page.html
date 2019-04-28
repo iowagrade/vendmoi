@@ -23,7 +23,7 @@
 </ion-item>
 
 <ion-list>
-  <div *ngFor="let item of cartProducts" detail="true">
+  <div *ngFor="let item of cartProducts; index as i" detail="true">
     <ion-card>
       <ion-card-content>
         <ion-item class="item-avatar">
@@ -33,7 +33,9 @@
         <p>THC {{item.THC}}</p>
         <p>CBD {{item.CBD}}</p>
         <p>{{item.priceString}}</p>
-    </ion-card-content>
+        <p>Item Price = {{item.priceString}}</p>
+        <p>Price: {{item.price | currency:'USD':'symbol'}} x {{cartItems[i].quantity}} = {{itemTotal[i] | currency:'USD':'symbol'}}</p>
+      </ion-card-content>
   </ion-card>
 </div>
 </ion-list>

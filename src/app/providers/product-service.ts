@@ -10,6 +10,7 @@ export interface Product {
   'rating': string;
   'price': any;
   'priceString': string;
+  'qty': any;
   'type': string;
   'mnf': string;
   'img1': string;
@@ -38,6 +39,7 @@ export class ProductService {
         rating: '5',
         price: '10.00',
         priceString: '$10 per gram',
+        qty: '0',
         type: 'FL',
         mnf: 'Farmer Green',
         img1: 'FL_buds-01.jpg'
@@ -51,6 +53,7 @@ export class ProductService {
         rating: '4.5',
         price: '8.00',
         priceString: '$8 per gram',
+        qty: '0',
         type: 'FL',
         mnf: 'Farmer Brown, LLC',
         img1: 'FL_buds-03.jpg'
@@ -64,6 +67,7 @@ export class ProductService {
         rating: '4',
         price: '22.00',
         priceString: '$22 per 25 pcs.',
+        qty: '0',
         type: 'ED',
         mnf: 'Medicinal Treats, Inc.',
         img1: 'ED_gummyBears-01.jpg'
@@ -77,6 +81,7 @@ export class ProductService {
         rating: '4',
         price: '22.95',
         priceString: '$22 per 25 oz.',
+        qty: '0',
         type: 'EX',
         mnf: 'Century Oil, Inc.',
         img1: 'EX_CoconutOil-01.jpg'
@@ -90,6 +95,7 @@ export class ProductService {
         rating: '5',
         price: '$28.00',
         priceString: '$28 per 25 pcs.',
+        qty: '0',
         type: 'ED',
         mnf: 'Medicinal Treats, Inc.',
         img1: 'ED_gummyBears-01.jpg'
@@ -102,7 +108,8 @@ export class ProductService {
         THC: '7.1',
         rating: '3.5',
         price: '22.50',
-        priceString: '$22 per 6 oz.',
+        priceString: '$22.50 per 6 oz.',
+        qty: '0',
         type: 'ED',
         mnf: 'Chocolate Infusion, Inc.',
         img1: 'ED_milkChocolate-01.jpg'
@@ -116,6 +123,7 @@ export class ProductService {
         rating: '4.5',
         price: '25.00',
         priceString: '$25 per 6 oz.',
+        qty: '0',
         type: 'ED',
         mnf: 'Chocolate Infusion, Inc.',
         img1: 'ED_whiteChocolate-01.jpg'

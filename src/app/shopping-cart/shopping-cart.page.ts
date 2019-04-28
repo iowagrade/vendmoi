@@ -13,6 +13,7 @@ export class ShoppingCartPage implements OnInit {
   products: Product[];
   cartProducts: Product[] = []; // local # for calculation
   totalCost: any = 0.0;
+  itemTotal: number[] = [];
 
   constructor(public cartItemService: CartItemService, public productService: ProductService) { 
 
@@ -38,13 +39,20 @@ export class ShoppingCartPage implements OnInit {
     
     // load cartProducts
     console.log("shopping cart # of cart items = ", this.cartItems.length);
+    console.log("onInit totalCost = ", this.totalCost);
     for(var i = 0; i < this.cartItems.length; i++) {
       this.cartProducts.push(this.productService.getProduct(this.cartItems[i].id));
+      //this.cartProducts[i].qtyPrice = this.cartProducts[i].price * this.cartItems[i].quantity;
+      console.log("price * qty = ", this.cartProducts[i].price, this.cartItems[i].quantity, this.cartProducts[i].price * this.cartItems[i].quantity)
+      this.itemTotal[i] = this.cartProducts[i].price * this.cartItems[i].quantity;
       this.totalCost += this.cartProducts[i].price * this.cartItems[i].quantity;
     }
     console.log("shopping cart # of cart products = ", this.cartProducts.length);
-
     console.log("in cart OnInit, totalCost = ", this.totalCost);
+  }
+
+  getSolution(a:number, b:number) {
+    return a * b;
   }
 
 }
