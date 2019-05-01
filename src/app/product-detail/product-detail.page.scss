@@ -1,0 +1,19 @@
+.button-bar_custom > .button {
+    -webkit-box-flex: initial;
+    -webkit-flex: initial;
+    -moz-box-flex: initial;
+    -moz-flex: initial;
+    -ms-flex: initial;
+    flex: initial;
+    padding: 0 10px;
+    width: auto;
+    min-width: 90px;
+    font-size: 14px;
+  }
+  .buttonNumber {
+    fill: border;
+    color: yellow;
+  }
+  .buttonMinus {
+      color: red;
+  }

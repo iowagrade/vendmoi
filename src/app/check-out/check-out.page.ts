@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckOutPage implements OnInit {
 
+  shipMethod: any;
+  isDisabled: boolean = true;
+  payMethod: any;
+
   constructor() { }
 
   ngOnInit() {

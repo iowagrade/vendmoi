@@ -15,6 +15,7 @@ export class ProductDetailPage implements OnInit {
   newId: string = '1002';
   ci: CartItem;
   qtyItems: number = 0;
+  itemsPrice: number = 0;
 
 //  constructor() { }
   constructor(private route: ActivatedRoute, public cartItemService: CartItemService, public productService: ProductService) {
@@ -24,11 +25,16 @@ export class ProductDetailPage implements OnInit {
     this.qtyItems = this.cartItemService.getQtyCartItems();
   }
 
+  calcPrice() {
+    this.itemsPrice = this.qtyInCart * this.product.price;
+  }
+
   addToCart() {
     console.log("addToCart detail", this.qtyInCart);
     this.qtyInCart ++;
     this.cartItemService.addNewCartItem(this.product.id, 1);
     this.qtyItems ++;
+    this.calcPrice();
   }
 
   removeFromCart() {
@@ -38,6 +44,7 @@ export class ProductDetailPage implements OnInit {
       this.cartItemService.removeCartItem(this.product.id);
       this.qtyItems --;
     }
+    this.calcPrice();
   }
 
   ionViewWillEnter() {
@@ -51,6 +58,8 @@ export class ProductDetailPage implements OnInit {
     if(this.ci) {
       this.qtyInCart = this.ci.quantity;
     }
+
+    this.calcPrice();
 
   }
 }

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar style="--background: rgb(44, 70, 105)(0.172, 0.274, 0.411)">
+  <ion-toolbar style="--background: rgb(44, 70, 105)"> <!--(0.172, 0.274, 0.411)-->
     <ion-buttons>
       <ion-buttons slot="start">
         <ion-back-button defaultHref="/home" style="color:rgb(203, 177, 131)"></ion-back-button>
@@ -8,7 +8,8 @@
         <ion-icon slot="icon-only" name="menu" style="color:rgb(203, 177, 131)"></ion-icon>
       </ion-button>
       <ion-title>
-        <img src="..\..\assets\logoName-01.jpg">
+        <!--      <img src="..\..\assets\logoName-01.jpg"> -->
+        <img src="http://www.carbongeotech.com/vendmoi/assets/logoName-01.jpg">
       </ion-title>
       <ion-button slot="end" tappable routerLink="/shopping-cart/">
         <ion-badge>{{ qtyItems }}</ion-badge>
@@ -29,7 +30,8 @@
         </ion-item> -->
       
         <ion-item>
-        <img src="..\..\assets\imgs\{{product?.img1}}">
+          <!-- <img src="..\..\assets\imgs\{{product?.img1}}"> -->
+          <img src="http://www.carbongeotech.com/vendmoi/assets/imgs/{{product?.img1}}">
         </ion-item>
                 
         <ion-card-content>
@@ -39,11 +41,12 @@
           <p>CBD {{product.CBD}}%</p>
           <p>Manufacturer: {{product.mnf}}</p>
           <p>Price: {{product.priceString}}</p>
-          <ion-buttons>
-            <ion-button (click)=addToCart()>Add to Cart +</ion-button>
-            <ion-button>{{qtyInCart}}</ion-button>
-            <ion-button (click)=removeFromCart()>- Remove from Cart</ion-button>
-          </ion-buttons>
+          <div> <!--class="button-bar bar-stable">-->
+            <ion-button class="button" (click)=addToCart()>Add to Cart +</ion-button>
+            <ion-button color="success" block outline> {{qtyInCart}} </ion-button>
+            <ion-button class="button" (click)=removeFromCart() color="danger">- Remove</ion-button>
+          </div>
+          <p>Sub Total for this Item = {{itemsPrice | currency:'USD':'symbol'}}</p>
         </ion-card-content>
       
       <!--

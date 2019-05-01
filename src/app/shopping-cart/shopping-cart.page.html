@@ -8,7 +8,8 @@
         <ion-icon slot="icon-only" name="menu" style="color:rgb(203, 177, 131)"></ion-icon>
       </ion-button>
       <ion-title>
-        <img src="..\..\assets\logoName-01.jpg">
+        <!--      <img src="..\..\assets\logoName-01.jpg"> -->
+        <img src="http://www.carbongeotech.com/vendmoi/assets/logoName-01.jpg">
       </ion-title>
       <ion-button slot="end" tappable routerLink="">
           <ion-icon slot="icon-only" name="home" style="color:rgb(203, 177, 131)"></ion-icon>
@@ -19,15 +20,18 @@
 
 <ion-content>
 <ion-item>
-  hello shopper.  Your total Cost = {{ totalCost | currency:'USD':'symbol' }}.
+  Hello shopper.  Cart Sub Total for {{qtyItems}} items = {{ totalCost | currency:'USD':'symbol' }}.
 </ion-item>
+
+<ion-button block tappable routerLink="/check-out">Proceed To Checkout</ion-button>
 
 <ion-list>
   <div *ngFor="let item of cartProducts; index as i" detail="true">
     <ion-card>
       <ion-card-content>
         <ion-item class="item-avatar">
-          <img src="..\..\assets\imgs\{{item.img1}}">
+          <!-- <img src="..\..\assets\imgs\{{item.img1}}" tappable routerLink="/product-detail/{{ item.id }}"> -->
+          <img src="http://www.carbongeotech.com/vendmoi/assets/imgs/{{item.img1}}" tappable routerLink="/product-detail/{{ item.id }}">
         </ion-item>
         <h3>{{item.name}}</h3>
         <p>THC {{item.THC}}</p>
@@ -35,6 +39,12 @@
         <p>{{item.priceString}}</p>
         <p>Item Price = {{item.priceString}}</p>
         <p>Price: {{item.price | currency:'USD':'symbol'}} x {{cartItems[i].quantity}} = {{itemTotal[i] | currency:'USD':'symbol'}}</p>
+ 
+        <ion-buttons>
+            <ion-button class="button" (click)=addToCart(item)>Add to Cart +</ion-button>
+            <ion-button>{{cartItems[i].quantity}}</ion-button>
+            <ion-button (click)=removeFromCart(item)>- Remove from Cart</ion-button>
+          </ion-buttons>
       </ion-card-content>
   </ion-card>
 </div>
