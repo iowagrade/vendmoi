@@ -1,15 +1,19 @@
 <ion-header>
   <ion-toolbar class="themeColor" style="color:rgb(44, 70, 105);">
-    <ion-buttons>
+    <ion-buttons slot="start">
       <!--<ion-menu-toggle>  rgb 69, 80, 98-->
-      <ion-button slot="start">
+      <ion-button>
         <ion-icon slot="icon-only" name="menu" style="color:rgb(203, 177, 131)"></ion-icon>
       </ion-button>
-      <ion-title>
+    </ion-buttons>
+
+    <ion-title>
 <!--        <img src="..\..\assets\logoName-01.jpg"> -->
-        <img src="http://www.carbongeotech.com/vendmoi/assets/logoName-01.jpg">
-      </ion-title>
-      <ion-button slot="end" tappable routerLink="/shopping-cart/">
+      <img src="http://www.carbongeotech.com/vendmoi/assets/logoName-01.jpg">
+    </ion-title>
+    
+    <ion-buttons slot="end">
+      <ion-button tappable routerLink="/shopping-cart/">
         <ion-badge>{{ qtyItems }}</ion-badge>
         <ion-icon slot="icon-only" name="cart" style="color:rgb(203, 177, 131)"></ion-icon>
       </ion-button>
