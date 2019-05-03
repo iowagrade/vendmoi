@@ -31,10 +31,18 @@
 
 <ion-content>
 <ion-item>
-  Hello shopper.  Cart Sub Total for {{qtyItems}} items = {{ totalCost | currency:'USD':'symbol' }}.
+  <b>Hello shopper.</b><br/>
 </ion-item>
-
-<ion-button block tappable routerLink="/check-out">Proceed To Checkout</ion-button>
+<ion-item>
+  <div *ngIf="(qtyItems > 0); else notShow">
+    Cart Sub Total for {{qtyItems}} Item(s) = {{ totalCost | currency:'USD':'symbol' }}.
+    <ion-button block tappable routerLink="/check-out">Proceed To Checkout</ion-button>
+  </div>
+  <ng-template #notShow>
+    <br>
+    <p>You have no items in your cart.</p>
+  </ng-template>
+</ion-item>
 
 <ion-list>
   <div *ngFor="let item of cartProducts; index as i" detail="true">

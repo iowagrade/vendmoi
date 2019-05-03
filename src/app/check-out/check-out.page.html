@@ -27,54 +27,26 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item lines="none">
-      <ion-label position="stacked">First Name</ion-label>
-      <ion-input class="input" type="text" placeholder="First Name"></ion-input>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-label class="label" position="stacked">Last Name</ion-label>
-      <ion-input class="input" placeholder="Last Name"></ion-input>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-label class="label" position="stacked">Address Line 1</ion-label>
-      <ion-input class="input" placeholder="Address Line 1"></ion-input>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-label class="label" position="stacked">Address Line 2 (optional)</ion-label>
-      <ion-input class="input" placeholder="Address Line 2"></ion-input>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-label class="label" position="stacked">City</ion-label>
-      <ion-input class="input" placeholder="City"></ion-input>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-label class="label" position="stacked">State</ion-label>
-      <ion-input class="input" placeholder="State"></ion-input>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-label class="label" position="stacked">Zip Code</ion-label>
-      <ion-input class="input" placeholder="Zip Code"></ion-input>
-    </ion-item>
-  </ion-list>
+
+  Cart Grand Total for {{qtyItems}} Item(s) = {{ totalCost | currency:'USD':'symbol' }} + {{ shipCost | currency:'USD':'symbol' }} = {{ grandTotalCost | currency:'USD':'symbol' }}.
 
   <div class="shipGroup">
     <ion-list>
-      <ion-radio-group [(ngModel)]="shipMethod">
+      <ion-radio-group [(ngModel)]="shipMethod" (click)=calcShipCost()>
       <ion-list-header>
         <ion-label>Choose Method of Shipping</ion-label>
       </ion-list-header>
       <ion-item>
-        <ion-label>Ground</ion-label>
+        <ion-label>Ground  ({{groundShipCost | currency:'USD':'symbol'}})</ion-label>
         <ion-radio value="ground" checked="true"></ion-radio>
       </ion-item>
       <ion-item>
-        <ion-label>2nd Day</ion-label>
+        <ion-label>2nd Day  ({{secondShipCost | currency:'USD':'symbol'}})</ion-label>
         <ion-radio value="2ndDay"></ion-radio>
       </ion-item>
       <ion-item>
-        <ion-label>Today</ion-label>
-        <ion-radio value="today" [disabled]="isDisabled"></ion-radio>
+        <ion-label>Today  ({{todayShipCost | currency:'USD':'symbol'}})</ion-label>
+        <ion-radio value="today"></ion-radio> <!-- [disabled]="isDisabled" -->
       </ion-item>
       </ion-radio-group>
     </ion-list>
@@ -82,20 +54,67 @@
 
   <div class="shipGroup">
     <ion-list>
-      <ion-radio-group [(ngModel)]="payMethod">
+      <ion-radio-group [(ngModel)]="payMethod" (click)=updatePayMethod()>
       <ion-list-header>
         <ion-label>Choose Method of Payment</ion-label>
       </ion-list-header>
       <ion-item>
         <ion-label>Debit or Credit</ion-label>
-        <ion-radio value="Debit or Credit" checked="true"></ion-radio>
+        <ion-radio value="card" checked="true"></ion-radio>
       </ion-item>
       <ion-item>
         <ion-label>Bitcoin</ion-label>
-        <ion-radio value="Bitcoin"></ion-radio>
+        <ion-radio value="bitcoin"></ion-radio>
       </ion-item>
       </ion-radio-group>
     </ion-list>
-  </div>
+    <div *ngIf="(payCard); else payBitcoin">
+      <ion-item lines="none">
+        <ion-label position="stacked">Card Number</ion-label>
+        <ion-input class="input" type="text" placeholder="Card Number"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label position="stacked">Expiration</ion-label>
+        <ion-input class="input" type="text" placeholder="Expiration"></ion-input>
+      </ion-item>
+    </div>
+      <ng-template #payBitcoin>
+        <ion-item lines="none">
+          <ion-label position="stacked">Enter Bitcoin Address</ion-label>
+          <ion-input class="input" type="text" placeholder="Bitcoin Address"></ion-input>
+        </ion-item>
+      </ng-template>
+    </div>
   
-</ion-content>
+  <ion-list>
+      <ion-item lines="none">
+        <ion-label position="stacked">First Name</ion-label>
+        <ion-input class="input" type="text" placeholder="First Name"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label class="label" position="stacked">Last Name</ion-label>
+        <ion-input class="input" placeholder="Last Name"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label class="label" position="stacked">Address Line 1</ion-label>
+        <ion-input class="input" placeholder="Address Line 1"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label class="label" position="stacked">Address Line 2 (optional)</ion-label>
+        <ion-input class="input" placeholder="Address Line 2"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label class="label" position="stacked">City</ion-label>
+        <ion-input class="input" placeholder="City"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label class="label" position="stacked">State</ion-label>
+        <ion-input class="input" placeholder="State"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label class="label" position="stacked">Zip Code</ion-label>
+        <ion-input class="input" placeholder="Zip Code"></ion-input>
+      </ion-item>
+    </ion-list>
+  
+  </ion-content>
