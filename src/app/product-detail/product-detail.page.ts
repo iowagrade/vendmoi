@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService, Product } from '../providers/product-service';
 import { CartItemService, CartItem } from '../providers/cart-service';
 
+// to address back button bug
+import { NavController } from '@ionic/angular';
+
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.page.html',
@@ -18,11 +21,18 @@ export class ProductDetailPage implements OnInit {
   itemsPrice: number = 0;
 
 //  constructor() { }
-  constructor(private route: ActivatedRoute, public cartItemService: CartItemService, public productService: ProductService) {
+  constructor(private route: ActivatedRoute, public cartItemService: CartItemService, 
+          public productService: ProductService, public navCtrl: NavController) {
+  }
+
+  gotoPreviousPage() {
+    console.log("productDetail go back");
+    this.navCtrl.navigateRoot("");
   }
 
   ngOnInit() {
     this.qtyItems = this.cartItemService.getQtyCartItems();
+    console.log("productDetail onInit qtyItems = ", this.qtyItems);
   }
 
   calcPrice() {
@@ -59,6 +69,7 @@ export class ProductDetailPage implements OnInit {
       this.qtyInCart = this.ci.quantity;
     }
 
+    this.qtyItems = this.cartItemService.getQtyCartItems();
     this.calcPrice();
 
   }

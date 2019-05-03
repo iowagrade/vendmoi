@@ -9,6 +9,8 @@ import { CartItemService, CartItem } from '../providers/cart-service';
 })
 export class ShoppingCartPage implements OnInit {
 
+  cp: Product;
+  ci: CartItem;
   cartItems: CartItem[];
   products: Product[];
   cartProducts: Product[] = []; // local # for calculation
@@ -42,6 +44,10 @@ export class ShoppingCartPage implements OnInit {
       this.cartProducts.push(this.productService.getProduct(this.cartItems[i].id));
     }
     this.calcCartTotals();
+
+    //this.qtyItems = this.cartItemService.getQtyCartItems();
+    this.qtyInCart = this.cartItemService.getQtyCartItems();
+    console.log("shopping cart onInit qtyItems = ", this.qtyItems);
   }
    
   calcCartTotals() {
@@ -50,8 +56,9 @@ export class ShoppingCartPage implements OnInit {
     console.log("shopping cart # of cart items = ", this.cartItems.length);
     console.log("onInit totalCost = ", this.totalCost);
     for(var i = 0; i < this.cartItems.length; i++) {
+      console.log("shopping cart counter i", i);
       //this.cartProducts[i].qtyPrice = this.cartProducts[i].price * this.cartItems[i].quantity;
-      console.log("price * qty = ", this.cartProducts[i].price, this.cartItems[i].quantity, this.cartProducts[i].price * this.cartItems[i].quantity)
+      console.log("item ID, price * qty = ", this.cartItems[i].id, this.cartProducts[i].price, this.cartItems[i].quantity, this.cartProducts[i].price * this.cartItems[i].quantity)
       this.itemTotal[i] = this.cartProducts[i].price * this.cartItems[i].quantity;
       this.totalCost += this.cartProducts[i].price * this.cartItems[i].quantity;
     }
@@ -76,6 +83,23 @@ export class ShoppingCartPage implements OnInit {
       this.qtyInCart --;
       this.cartItemService.removeCartItem(product.id);
       this.qtyItems --;
+
+      //if number of this cartItem in cart = 0, then remove from cartProducts list
+      this.ci = this.cartItemService.getCartItem(product.id);
+      if(this.ci) {
+        console.log("this item is still in list of products")
+      }
+      else {
+       // console.log("shopping cart: remove product id = ", product.id);
+       // this.productService.removeProduct(product.id);
+
+        // need to remove from local list of cartProducts
+        //this.cp = this.cartProducts.find(product => product.id === product.id);
+        var theId = product.id;
+        var index = this.cartProducts.findIndex(product => product.id === theId);
+        console.log("shoppingCart: remove cartProduct with index = ", index);
+        this.cartProducts.splice(index, 1);    
+      }
     }
 
     this.calcCartTotals();

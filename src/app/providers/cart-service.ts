@@ -17,20 +17,20 @@ export class CartItemService {
   totalNum: number = 0;
 
   constructor() {
-    this.cartItems = [
+  /*  this.cartItems = [
       {
         id: '1000',
         quantity: 1
       },
       {
-        id: '1005',
+        id: '1001',
         quantity: 1
       },
       {
-        id: '1006',
+        id: '1002',
         quantity: 3
       }
-    ];
+    ]; */
    }
 
    getQtyCartItems() {
@@ -44,16 +44,21 @@ export class CartItemService {
    addNewCartItem(id:string, qty) {
     this.ci = this.getCartItem(id);
     if(this.ci) {
+      console.log("this item was already in cart");
       console.log("had # items in cart adding qty", this.ci.quantity, qty)
       this.ci.quantity += qty;
     }
     else {
+      var ni = <CartItem>{};
+      ni.id = id;
+      ni.quantity = qty;
       console.log("addNewCartItem id = ", id);
       this.newItem.id = id;
       //console.log("step1");
       this.newItem.quantity = qty;
       console.log("cart service # items = ", this.cartItems.length);
-      this.cartItems.push(this.newItem);
+      this.cartItems.push(ni);
+      //this.cartItems.push(this.newItem);
       console.log("after add, cart service # items = ", this.cartItems.length);
     }
   }
@@ -61,8 +66,14 @@ export class CartItemService {
   removeCartItem(id:string) {
     this.ci = this.getCartItem(id);
     if(this.ci) {
-      console.log("had # items in cart adding qty", this.ci.quantity)
+      console.log("had # items in cart removing 1 item");
       this.ci.quantity -= 1;
+
+      if(this.ci.quantity == 0) { //need to remove from the array of cartItems
+        console.log("now quantity = 0, so need to remove item from list");
+        var index = this.cartItems.findIndex(cartItem => cartItem.id == id);
+        this.cartItems.splice(index, 1);
+      }
     }
   }
 

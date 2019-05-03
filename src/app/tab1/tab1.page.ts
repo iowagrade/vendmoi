@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+// this is to address back button issue
+import { Router, NavigationStart } from '@angular/router';
+import { filter } from 'rxjs/operators';
+// this is end of address back button issue
+
 import { ProductService, Product } from '../providers/product-service';
 import { CartItemService, CartItem } from '../providers/cart-service';
 
@@ -20,7 +25,16 @@ export class Tab1Page implements OnInit {
   ediblesToggle: boolean = true;
   extractsToggle: boolean = true;
 
-  constructor(/*private platform: Platform,*/public cartItemService: CartItemService,  public productService: ProductService) {
+  constructor(/*private platform: Platform,*/public cartItemService: CartItemService,  public productService: ProductService,
+    private readonly _router: Router) {
+
+  _router.events.pipe(
+    filter(event => event instanceof NavigationStart)
+  ).subscribe((route: NavigationStart) => {
+    console.log("we are here in the filter")
+    this.qtyItems = this.cartItemService.getQtyCartItems();
+    console.log("tab1 onInit qtyItems = ", this.qtyItems);
+  });
 
   //  this.extractsToggle = true;
   //  this.flowersToggle = true;
@@ -51,7 +65,8 @@ export class Tab1Page implements OnInit {
   };
 
   ngOnInit() {
-      this.qtyItems = this.cartItemService.getQtyCartItems();
+    this.qtyItems = this.cartItemService.getQtyCartItems();
+    console.log("tab1 onInit qtyItems = ", this.qtyItems);
   }
 
   toggleAR() {
@@ -68,6 +83,15 @@ export class Tab1Page implements OnInit {
  
   toggleExtracts() {
     this.extractsToggle = !this.extractsToggle;
+  }
+
+  ionViewWillEnter() {
+    this.qtyItems = this.cartItemService.getQtyCartItems();
+    console.log("tab1 onViewWillEnter qtyItems = ", this.qtyItems);
+  }
+
+  ionViewDidEnter() {
+    console.log("tab1 onViewDidEnter qtyItems = ", this.qtyItems);
   }
 
 }

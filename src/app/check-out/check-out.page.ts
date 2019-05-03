@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartItemService, CartItem } from '../providers/cart-service';
 
 @Component({
   selector: 'app-check-out',
@@ -10,10 +11,12 @@ export class CheckOutPage implements OnInit {
   shipMethod: any;
   isDisabled: boolean = true;
   payMethod: any;
+  qtyItems: number = 0;
 
-  constructor() { }
+  constructor(public cartItemService: CartItemService) { }
 
   ngOnInit() {
+    this.qtyItems = this.cartItemService.getQtyCartItems();
   }
 
 }

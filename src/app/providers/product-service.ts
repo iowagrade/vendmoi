@@ -21,12 +21,21 @@ export class ProductService {
   public products: Product[] = [];
   public productsData: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
 
+  p: Product;
+
   constructor() {
   }
 
   getProduct(id): Product {
     return this.products.find(product => product.id === id);
   }
+
+  removeProduct(id) {
+    this.p = this.products.find(product => product.id === id);
+    var index = this.products.findIndex(product => product.id === id);
+    console.log("productService: remove product with indes = ", index);
+    this.products.splice(index, 1);
+}
 
   getAllProducts() {
     this.products = [
@@ -79,8 +88,8 @@ export class ProductService {
         CBD: '10.2',
         THC: '1.1',
         rating: '4',
-        price: '22.95',
-        priceString: '$22 per 25 oz.',
+        price: '22.50',
+        priceString: '$22.50 per 25 oz.',
         qty: '0',
         type: 'EX',
         mnf: 'Century Oil, Inc.',

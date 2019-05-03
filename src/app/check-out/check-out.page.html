@@ -1,21 +1,28 @@
 <ion-header>
   <ion-toolbar style="--background: rgb(44, 70, 105)">
-    <ion-buttons>
-      <ion-buttons slot="start">
+
+    <ion-buttons slot="start">
+      <ion-button>
         <ion-back-button defaultHref="/home" style="color:rgb(203, 177, 131)"></ion-back-button>
-      </ion-buttons>
-        <ion-button slot="secondary">
+      </ion-button>
+
+      <ion-button slot="secondary">
         <ion-icon slot="icon-only" name="menu" style="color:rgb(203, 177, 131)"></ion-icon>
       </ion-button>
-      <ion-title>
-        <!-- <img src="..\..\assets\logoName-01.jpg"> -->
-        <img src="http://www.carbongeotech.com/vendmoi/assets/logoName-01.jpg">
-      </ion-title>
-      <ion-button slot="end" tappable routerLink="/shopping-cart/">
+    </ion-buttons>
+
+    <ion-title>
+      <!-- <img src="..\..\assets\logoName-01.jpg"> -->
+      <img src="http://www.carbongeotech.com/vendmoi/assets/logoName-01.jpg">
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button tappable routerLink="/shopping-cart/">
         <ion-badge>{{ qtyItems }}</ion-badge>
         <ion-icon slot="icon-only" name="cart" style="color:rgb(203, 177, 131)"></ion-icon>
       </ion-button>
     </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
@@ -51,27 +58,30 @@
     </ion-item>
   </ion-list>
 
-  <ion-list>
-    <ion-radio-group [(ngModel)]="shipMethod">
-    <ion-list-header>
-      <ion-label>Choose Method of Shipping</ion-label>
-    </ion-list-header>
-    <ion-item>
-      <ion-label>Ground</ion-label>
-      <ion-radio value="ground" checked="true"></ion-radio>
-    </ion-item>
-    <ion-item>
-      <ion-label>2nd Day</ion-label>
-      <ion-radio value="2ndDay"></ion-radio>
-    </ion-item>
-    <ion-item>
-      <ion-label>Today</ion-label>
-      <ion-radio value="today" [disabled]="isDisabled"></ion-radio>
-    </ion-item>
-    </ion-radio-group>
-  </ion-list>
+  <div class="shipGroup">
+    <ion-list>
+      <ion-radio-group [(ngModel)]="shipMethod">
+      <ion-list-header>
+        <ion-label>Choose Method of Shipping</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Ground</ion-label>
+        <ion-radio value="ground" checked="true"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>2nd Day</ion-label>
+        <ion-radio value="2ndDay"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Today</ion-label>
+        <ion-radio value="today" [disabled]="isDisabled"></ion-radio>
+      </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </div>
 
-  <ion-list>
+  <div class="shipGroup">
+    <ion-list>
       <ion-radio-group [(ngModel)]="payMethod">
       <ion-list-header>
         <ion-label>Choose Method of Payment</ion-label>
@@ -86,5 +96,6 @@
       </ion-item>
       </ion-radio-group>
     </ion-list>
+  </div>
   
 </ion-content>
