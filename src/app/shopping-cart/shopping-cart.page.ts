@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService, Product } from '../providers/product-service';
 import { CartItemService, CartItem } from '../providers/cart-service';
+import { GlobalService } from '../providers/global-service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -9,6 +10,7 @@ import { CartItemService, CartItem } from '../providers/cart-service';
 })
 export class ShoppingCartPage implements OnInit {
 
+  ageVerified: boolean = false;
   cp: Product;
   ci: CartItem;
   cartItems: CartItem[];
@@ -19,7 +21,9 @@ export class ShoppingCartPage implements OnInit {
   qtyItems: number = 0;
   qtyInCart: number = 0;
 
-  constructor(public cartItemService: CartItemService, public productService: ProductService) { 
+  constructor(public globalService: GlobalService, 
+              public cartItemService: CartItemService, 
+              public productService: ProductService) { 
 
     this
     .cartItemService
@@ -40,6 +44,9 @@ export class ShoppingCartPage implements OnInit {
   }
 
   ngOnInit() {
+    this.ageVerified = this.globalService.getAgeVerified();
+    console.log("enter shopping cart page, age verified = ", this.ageVerified);
+
     for(var i = 0; i < this.cartItems.length; i++) {
       this.cartProducts.push(this.productService.getProduct(this.cartItems[i].id));
     }

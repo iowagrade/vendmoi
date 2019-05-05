@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 
 import { ProductService } from './providers/product-service';
 import { CartItemService } from './providers/cart-service';
+import { GlobalService } from './providers/global-service';
+import { RecommendService } from './providers/recommend-service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +22,8 @@ import { CartItemService } from './providers/cart-service';
   providers: [
     CartItemService,
     ProductService,
+    GlobalService,
+    RecommendService,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

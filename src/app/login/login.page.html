@@ -12,8 +12,8 @@
     </ion-buttons>
 
     <ion-title>
-      <!-- <img src="..\..\assets\logoName-01.jpg"> -->
-      <img src="http://www.carbongeotech.com/vendmoi/assets/logoName-01.jpg">
+<!--        <img src="..\..\assets\vm_logo-04.png"> -->
+      <img src="http://www.carbongeotech.com/vendmoi/assets/vm_logo-04.png">
     </ion-title>
 
     <ion-buttons slot="end">
@@ -42,5 +42,19 @@
     </ion-list>
   </div>
 
-  <ion-button class="cbutton" tappable routerLink="">Login</ion-button>
+  <ion-card>
+    <ion-item>
+      <ion-checkbox value="ageVerified" (click)=checkAgeVerify()></ion-checkbox>
+      <ion-label text-wrap>
+        You must be 21 years of age to enter and make purchases from this site.  
+        Please check this box to verify that you are at least 21 years of age.
+      </ion-label>
+    </ion-item>
+  </ion-card>
+  <div *ngIf="(ageVerified); else notShow">
+    <ion-button class="cbutton" tappable routerLink="">Login</ion-button>
+  </div>
+  <ng-template #notShow>
+    <ion-button class="cbutton2" color="medium">Login</ion-button>
+  </ng-template>
 </ion-content>
