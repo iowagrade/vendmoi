@@ -11,6 +11,9 @@ export class LoginPage implements OnInit {
   ageVerify: boolean = false;
   ageVerified: boolean = false;
 
+  userName: string = "John Doe";
+  password: string = "password_"
+
   constructor(public globalService: GlobalService) { }
 
   ngOnInit() {
@@ -22,6 +25,8 @@ export class LoginPage implements OnInit {
     this.ageVerified = !this.ageVerified;
     this.globalService.setAgeVerified(this.ageVerified);
 //    this.ageVerify = !this.ageVerified;
+    this.globalService.setUserName(this.userName);
+    this.globalService.setPassword(this.password);
   }
 
 }
