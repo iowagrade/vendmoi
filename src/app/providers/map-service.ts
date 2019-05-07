@@ -53,7 +53,7 @@ export class MapItemService {
         phone: '(877) 420-5874',
         hrsweekday: '8AM-7PM Mon-Fri',
         hrsweekend: '8AM-5PM Sat, Closed Sun',
-        rating: '3.9',
+        rating: 3.9,
         numRatings: '62',
         website: 'www.mmdshops.com'
       },
@@ -69,7 +69,7 @@ export class MapItemService {
         phone: '(323) 463-3295',
         hrsweekday: '9AM-4PM Mon-Thu',
         hrsweekend: 'Closed Sat-Sun',
-        rating: '4.4',
+        rating: 4.4,
         numRatings: '13',
         website: 'www.dreidelman.com'
       },
@@ -85,7 +85,7 @@ export class MapItemService {
         phone: '(323) 463-5000',
         hrsweekday: '9AM-6PM Mon-Fri',
         hrsweekend: '9AM-5PM Sat-Sun',
-        rating: '3.7',
+        rating: 3.7,
         numRatings: '22',
         website: 'www.la420doctor.com'
       },
@@ -101,7 +101,7 @@ export class MapItemService {
         phone: '(323) 466-7688',
         hrsweekday: '',
         hrsweekend: '',
-        rating: '4.0',
+        rating: 4.0,
         numRatings: '1',
         website: ''
       },
@@ -117,7 +117,7 @@ export class MapItemService {
         phone: '(323) 871-2488',
         hrsweekday: '10AM-5PM Mon-Fri',
         hrsweekend: 'Closed Sat-Sun',
-        rating: '3.0',
+        rating: 3.0,
         numRatings: '2',
         website: ''
       }
