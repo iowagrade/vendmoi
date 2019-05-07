@@ -14,15 +14,17 @@ import { ProductService } from './providers/product-service';
 import { CartItemService } from './providers/cart-service';
 import { GlobalService } from './providers/global-service';
 import { RecommendService } from './providers/recommend-service';
+import { MapItemService } from './providers/map-service';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [FormsModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
+    GlobalService,
     CartItemService,
     ProductService,
-    GlobalService,
+    MapItemService,
     RecommendService,
     StatusBar,
     SplashScreen,

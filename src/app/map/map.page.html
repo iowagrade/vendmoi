@@ -1,0 +1,100 @@
+<ion-header>
+    <ion-toolbar class="themeColor" style="color:rgb(44, 70, 105);">
+      <ion-buttons slot="start">
+        <ion-button>
+          <ion-back-button defaultHref="/home" style="color:rgb(203, 177, 131)"></ion-back-button>
+        </ion-button>      
+      </ion-buttons>
+
+      <ion-title>
+  <!--        <img src="..\..\assets\vm_logo-04.png"> -->
+        <img src="http://www.carbongeotech.com/vendmoi/assets/vm_logo-04.png">
+      </ion-title>
+      
+    </ion-toolbar>
+  </ion-header>
+
+  <!--
+  'name': string;
+  'description': string;
+  'type': string;
+  'street': string;
+  'city': string;
+  'state': string;
+  'zip': string;
+  'phone': string;
+  'hrsweekday': string;
+  'hrsweekend': string;
+  'rating': string;
+  'numRatings': any;
+  'website': string;-->
+
+    <ion-label>
+      <p>(This is a concept page and not yet fully functionable)</p>
+      <p>View product suppliers within 2 miles of zip code 90028.</p>  
+    </ion-label>
+  <ion-item>
+    <ion-range min="0" max="100" color="secondary" value="2" >
+      <ion-label slot="start">0</ion-label>
+      <ion-label slot="end">100</ion-label>
+    </ion-range>
+  </ion-item>
+
+<ion-item>
+  <!--    <img width="100%" height="256px" src="..\..\assets\hollywoodMap-02.jpg"> -->
+  <img width="100%" height="256px" src="http://www.carbongeotech.com/vendmoi/assets/hollywoodMap-02.jpg">
+</ion-item>
+
+Click suppliers to choose where to shop.
+<ion-content>
+    <ion-list-header>
+      <ion-label style="font-size:30px">Suppliers</ion-label>
+    </ion-list-header>
+      <ion-list>
+        <div *ngFor="let mi of mapItems; index as j" (click)=toggleStore(j); detail="true">
+          <div *ngIf="(getUseStore(j)); else redStore">
+            <ion-card class="card">
+              <h3>{{mi.name}}</h3>
+              <p>Rating: {{mi.rating}}</p>
+              <div *ngFor="let num of [1,2,3,4,5]; index as i">
+                <div *ngIf="(lessThanRating(i, mi.rating)); else noFill">
+                  <ion-icon class="star" name="star"></ion-icon>
+                </div>
+                <ng-template #noFill>
+                    <ion-icon class="star" name="star-outline"></ion-icon>
+                </ng-template>
+              </div>
+              <div>
+                <p>{{mi.type}}</p>
+                <p>{{mi.street}}</p>
+                <p>{{mi.phone}}</p>
+                <p>{{mi.hrsweekday}}</p>
+                <p>{{mi.hrsweekend}}</p>
+              </div>
+            </ion-card>
+          </div>
+          <ng-template #redStore>
+            <ion-card class="redcard">
+              <h3>{{mi.name}}</h3>
+              <p>Rating: {{mi.rating}}</p>
+              <div *ngFor="let num of [1,2,3,4,5]; index as i">
+                <div *ngIf="(lessThanRating(i, mi.rating)); else noFill">
+                  <ion-icon class="star" name="star"></ion-icon>
+                </div>
+                <ng-template #noFill>
+                    <ion-icon class="star" name="star-outline"></ion-icon>
+                </ng-template>
+              </div>
+              <div>
+                <p>{{mi.type}}</p>
+                <p>{{mi.street}}</p>
+                <p>{{mi.phone}}</p>
+                <p>{{mi.hrsweekday}}</p>
+                <p>{{mi.hrsweekend}}</p>
+              </div>
+            </ion-card>
+          </ng-template>
+        </div>
+      </ion-list>
+    
+    </ion-content>

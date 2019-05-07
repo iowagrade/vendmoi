@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'create-account', loadChildren: './create-account/create-account.module#CreateAccountPageModule' },
   { path: 'product-detail/:id', loadChildren: './product-detail/product-detail.module#ProductDetailPageModule' },
+  { path: 'map', loadChildren: './map/map.module#MapPageModule' },
   { path: 'shopping-cart', loadChildren: './shopping-cart/shopping-cart.module#ShoppingCartPageModule' },
   { path: 'payment', loadChildren: './payment/payment.module#PaymentPageModule' },
   { path: 'check-out', loadChildren: './check-out/check-out.module#CheckOutPageModule' },

@@ -1,0 +1,39 @@
+.themeColor {
+    --background: rgb(44, 70, 105);  //(69,80,98);
+    --goldColor: rgb(203, 177, 131);
+}
+.card {
+  line-height: 0.6;
+  border: 3px rgb(0, 200, 10) solid;
+  padding: 3px;
+  display: block;        
+  border-radius: 15px;
+}
+
+.redcard {
+  line-height: 0.6;
+  border: 3px rgb(200, 0, 10) solid;
+  padding: 3px;
+  display: block;        
+  border-radius: 15px;
+}
+
+.star {
+  display:inline-block;
+  float: left;
+}
+  
+.ostar {
+  display:inline-block;
+  float: left;
+  //ion-icon {
+  fill: none;
+//}
+}
+
+.chooseStore {
+  border: 3px rgb(0, 90, 10) solid;
+  padding: 3px;
+  display: block;        
+  border-radius: 15px;
+}
