@@ -18,6 +18,17 @@
   color: #00FF00;
   //background-color: transparent;
 }
+.buttonRight {
+  //text-align: right;
+  //display: flex;
+  //justify-content: flex-end;
+  //align-items: right;
+  //padding-right: 0px;
+  //width: 300px;
+  position: absolute;
+  right: 0;
+  top: 4px;
+}
 .button-bar_custom > .button {
   -webkit-box-flex: initial;
   -webkit-flex: initial;

@@ -46,7 +46,7 @@ export class RecommendService {
         id: '1003',
         name: 'Retired Roofer',
         description: 'Knee pain',
-        summary: 'I have suffered with knee pain for many years due to my time as a roofer.  I have been rubbing the coconut CBD oil on my knees at nights and I would receommend it to anyone with this tye of pain',
+        summary: 'I have suffered with knee pain for many years due to my time as a roofer.  I have been rubbing the coconut CBD oil on my knees at nights and I would receommend it to anyone with this type of pain',
         productId: '1003'
       },
       {

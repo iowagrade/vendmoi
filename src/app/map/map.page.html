@@ -2,7 +2,7 @@
     <ion-toolbar class="themeColor" style="color:rgb(44, 70, 105);">
       <ion-buttons slot="start">
         <ion-button>
-          <ion-back-button defaultHref="/home" style="color:rgb(203, 177, 131)"></ion-back-button>
+          <ion-back-button text="" defaultHref="/home" style="color:rgb(203, 177, 131)"></ion-back-button>
         </ion-button>      
       </ion-buttons>
 
@@ -31,10 +31,10 @@
 
     <ion-label>
       <p>(This is a concept page and not yet fully functionable)</p>
-      <p>View product suppliers within 2 miles of zip code 90028.</p>  
+      <p>View product suppliers within {{sliderValue}} miles of zip code 90028.</p>  
     </ion-label>
   <ion-item>
-    <ion-range min="0" max="100" color="secondary" value="2" >
+    <ion-range min="0" max="100" color="secondary" value="2" [(ngModel)]="sliderValue">
       <ion-label slot="start">0</ion-label>
       <ion-label slot="end">100</ion-label>
     </ion-range>

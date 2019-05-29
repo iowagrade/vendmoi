@@ -1,0 +1,17 @@
+ion-menu{
+  ion-header{
+    --ion-background-color:rgb(44, 70, 105);
+    --ion-text-color: rgb(203, 177, 131);
+  }
+  ion-content{
+      --ion-background-color:rgb(44, 70, 105);
+      --ion-text-color: rgb(203, 177, 131);
+      text-decoration-color: rgb(203, 177, 131);
+      font-display: color rgb(203,177,131);
+      //color:rgb(44, 70, 105);
+  }
+  ion-icon{
+    //--ion-background-color:rgb(255, 70, 105);
+    color: rgb(203, 177, 131);
+  }
+}
