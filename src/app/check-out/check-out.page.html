@@ -7,7 +7,7 @@
       </ion-button>
 
       <ion-menu-button>
-        <ion-button slot="secondary">
+        <ion-button>
           <ion-icon slot="icon-only" name="menu" style="color:rgb(203, 177, 131)"></ion-icon>
         </ion-button>
       </ion-menu-button>
@@ -47,8 +47,8 @@
         <ion-radio value="2ndDay"></ion-radio>
       </ion-item>
       <ion-item>
-        <ion-label>Today  ({{todayShipCost | currency:'USD':'symbol'}})</ion-label>
-        <ion-radio value="today"></ion-radio> <!-- [disabled]="isDisabled" -->
+        <ion-label>Drone Delivery  ({{todayShipCost | currency:'USD':'symbol'}})</ion-label>
+        <ion-radio value="dronedelivery"></ion-radio> <!-- [disabled]="isDisabled" -->
       </ion-item>
       </ion-radio-group>
     </ion-list>
@@ -65,8 +65,8 @@
         <ion-radio value="card" checked="true"></ion-radio>
       </ion-item>
       <ion-item>
-        <ion-label>Bitcoin</ion-label>
-        <ion-radio value="bitcoin"></ion-radio>
+        <ion-label>Crypto Currency</ion-label>
+        <ion-radio value="cryptocurrency"></ion-radio>
       </ion-item>
       </ion-radio-group>
     </ion-list>
@@ -82,8 +82,8 @@
     </div>
       <ng-template #payBitcoin>
         <ion-item lines="none">
-          <ion-label position="stacked">Enter Bitcoin Address</ion-label>
-          <ion-input class="input" type="text" placeholder="Bitcoin Address"></ion-input>
+          <ion-label position="stacked">Enter Crypto Address</ion-label>
+          <ion-input class="input" type="text" placeholder="Crypto Currency Address"></ion-input>
         </ion-item>
       </ng-template>
     </div>

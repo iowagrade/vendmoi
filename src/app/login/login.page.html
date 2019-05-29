@@ -19,7 +19,7 @@
     </ion-title>
 
     <ion-buttons slot="end">
-      <ion-button tappable routerLink="">
+      <ion-button tappable routerLink="/home">
           <ion-icon slot="icon-only" name="home" style="color:rgb(203, 177, 131)"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -54,7 +54,7 @@
     </ion-item>
   </ion-card>
   <div *ngIf="(ageVerified); else notShow">
-    <ion-button class="cbutton" tappable routerLink="">Login</ion-button>
+    <ion-button class="cbutton" tappable routerLink="/home">Login</ion-button>
   </div>
   <ng-template #notShow>
     <ion-button class="cbutton2" color="medium">Login</ion-button>

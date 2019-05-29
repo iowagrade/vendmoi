@@ -18,7 +18,7 @@ export class AppComponent {
     },
     {
       title: 'Home',
-      url: '',
+      url: '/home',
       icon: 'home'
     },
     {

@@ -43,8 +43,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
-    pathMatch: 'full'
+    loadChildren: '../tab1/tab1.module#Tab1PageModule'
   }
 ];
 
