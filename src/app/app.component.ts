@@ -23,7 +23,7 @@ export class AppComponent {
     },
     {
       title: 'Rx',
-      url: '/tabs/tab2',
+      url: '/rx',
       icon: 'medkit'
     },
     {

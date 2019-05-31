@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
   }
 
   checkAgeVerify() {
-    this.ageVerified = !this.ageVerified;
+    //this.ageVerified = !this.ageVerified;
     this.globalService.setAgeVerified(this.ageVerified);
 //    this.ageVerify = !this.ageVerified;
     this.globalService.setUserName(this.userName);

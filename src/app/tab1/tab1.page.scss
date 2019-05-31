@@ -29,6 +29,9 @@
   right: 0;
   top: 4px;
 }
+.button-bar::-webkit-scrollbar {
+  display: none;
+}
 .button-bar_custom > .button {
   -webkit-box-flex: initial;
   -webkit-flex: initial;

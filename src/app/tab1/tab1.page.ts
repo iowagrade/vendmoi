@@ -28,6 +28,8 @@ export class Tab1Page implements OnInit {
   flowersToggle: boolean = true;
   ediblesToggle: boolean = true;
   extractsToggle: boolean = true;
+  accessoriesToggle: boolean = true;
+  petCareToggle: boolean = true;
 
   constructor(/*private platform: Platform,*/public globalService: GlobalService,
     public cartItemService: CartItemService,  
@@ -97,6 +99,14 @@ export class Tab1Page implements OnInit {
  
   toggleExtracts() {
     this.extractsToggle = !this.extractsToggle;
+  }
+
+  toggleAccessories() {
+    this.accessoriesToggle = !this.accessoriesToggle;
+  }
+
+  togglePetCare() {
+    this.petCareToggle = !this.petCareToggle;
   }
 
   ionViewWillEnter() {

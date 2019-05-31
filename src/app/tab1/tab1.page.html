@@ -50,10 +50,14 @@
         </ion-button>  
   </div>
 
-  <div class="button-bar bar-stable" style="text-align:center;">
+  <div class="button-bar bar-stable" style="text-align:center; overflow:scroll; overflow-x:scroll; width:100%; overflow-x:hidden;">
+    <ion-row nowrap>
     <ion-button class="button" (click)=toggleFlowers() [fill]="flowersToggle?'solid':'clear'">Flowers</ion-button>
     <ion-button class="button" (click)=toggleEdibles() [fill]="ediblesToggle?'solid':'clear'">Edibles</ion-button>
     <ion-button class="button" (click)=toggleExtracts() [fill]="extractsToggle?'solid':'clear'">Extracts</ion-button>
+    <ion-button class="button" (click)=toggleAccessories() [fill]="accessoriesToggle?'solid':'clear'">Accessories</ion-button>
+    <ion-button class="button" (click)=togglePetCare() [fill]="petCareToggle?'solid':'clear'">Pet Care</ion-button>
+  </ion-row>
   </div>
 
   <ion-list-header>

@@ -10,6 +10,7 @@ export class MapPage implements OnInit {
 
   mapItems: MapItem[];
   useStore: boolean[] = new Array(10);
+  sliderValue: number = 10;
 
   constructor(public mapItemService: MapItemService) { 
     this

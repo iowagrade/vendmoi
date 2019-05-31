@@ -1,0 +1,73 @@
+<ion-header>
+    <ion-toolbar class="themeColor" style="color:rgb(44, 70, 105);">
+      <ion-buttons slot="start">
+        <!--<ion-menu-toggle>  rgb 69, 80, 98-->
+        <ion-menu-button>
+          <ion-button>
+            <ion-icon slot="icon-only" name="menu" style="color:rgb(203, 177, 131)"></ion-icon>
+          </ion-button>
+        </ion-menu-button>
+      </ion-buttons>
+  
+      <ion-title>
+  <!--        <img src="..\..\assets\vm_logo-04.png"> -->
+        <img src="http://www.carbongeotech.com/vendmoi/assets/vm_logo-04.png">
+      </ion-title>
+      
+<!--      <ion-buttons slot="end">
+        <ion-button tappable routerLink="/shopping-cart/">
+          <ion-badge>{{ qtyItems }}</ion-badge>
+          <ion-icon slot="icon-only" name="cart" style="color:rgb(203, 177, 131)"></ion-icon>
+        </ion-button>
+      </ion-buttons> -->
+    </ion-toolbar>
+  </ion-header>
+  
+
+  <ion-content no-bounce>
+  <ion-list>
+    <div *ngFor="let rec of recommends" detail="true">
+      <ion-card>
+         <!-- <ion-item class="avatar">
+            <ion-avatar item-start>
+                <img [src]="..\..\assets\imgs\{{product?.img1}}">
+                <img src="..\..\assets\imgs\{{product?.img1}}">
+              </ion-avatar>
+            <h2 class="title">{{ product?.title }}</h2>
+          </ion-item> -->
+
+          <!--
+          'id': string;
+          'name': string;
+          'description': string;
+          'summary': string,
+          'productId': string;
+          -->      
+                  
+          <ion-card-content>
+            <h1>{{rec.name}}</h1>
+            <p>{{rec.description}}</p>
+            <p>{{rec.summary}}</p>
+          </ion-card-content>
+        
+        <ion-row>
+            <ion-item>
+            <ion-button icon-left clear small class="action-button">
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>12 Likes</div>
+            </ion-button>
+            <ion-button icon-left clear small>
+              <ion-icon name="text"></ion-icon>
+              <div>4 Comments</div>
+            </ion-button>
+            <ion-note slot="end">
+                11h ago
+            </ion-note>
+            </ion-item>
+          </ion-row>
+        
+        </ion-card>
+      </div>
+    </ion-list>
+  </ion-content>
+  
