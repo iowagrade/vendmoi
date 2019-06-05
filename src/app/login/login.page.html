@@ -46,7 +46,7 @@
 
   <ion-card>
     <ion-item>
-      <ion-checkbox [(ngModel)]="ageVerified" (click)=checkAgeVerify()></ion-checkbox>
+      <ion-checkbox (ngModel)="ageVerified" (click)=checkAgeVerify()></ion-checkbox>
       <ion-label text-wrap>
         You must be 21 years of age to enter and make purchases from this site.  
         Please check this box to verify that you are at least 21 years of age.
@@ -54,7 +54,7 @@
     </ion-item>
   </ion-card>
   <div *ngIf="(ageVerified); else notShow">
-    <ion-button class="cbutton" tappable routerLink="/home">Login</ion-button>
+    <ion-button class="cbutton" tappable routerLink="/home"  style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);">Login</ion-button>
   </div>
   <ng-template #notShow>
     <ion-button class="cbutton2" color="medium">Login</ion-button>

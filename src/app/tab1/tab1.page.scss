@@ -30,7 +30,14 @@
   top: 4px;
 }
 .button-bar::-webkit-scrollbar {
-  display: none;
+  //display: none;
+}
+div.scrollx {
+  overflow: hidden; 
+}
+.ion-button {
+  color: rgb(44, 70, 105);
+  --background: rgb(44, 70, 105);
 }
 .button-bar_custom > .button {
   -webkit-box-flex: initial;
@@ -43,6 +50,12 @@
   width: auto;
   min-width: 90px;
   font-size: 14px;
+  color: red;
+  background-color: red;
+  --background: red; //rgb(44, 70, 105);
+  //color: rgb(44, 70, 105);
+  //background-color: rgb(44, 70, 105);
+  text-decoration-color: red;
 }
 .menu {
   display: block !important;

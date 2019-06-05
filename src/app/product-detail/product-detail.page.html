@@ -19,9 +19,11 @@
     </ion-title>
 
     <ion-buttons slot="end">
-      <ion-button tappable routerLink="/home">
+      <!--  <ion-button tappable routerLink="/home">
         <ion-icon slot="icon-only" name="home" style="color:rgb(203, 177, 131)"></ion-icon>
-    </ion-button>
+      </ion-button>
+      -->
+
     <ion-button tappable routerLink="/shopping-cart/">
         <ion-badge>{{ qtyItems }}</ion-badge>
         <ion-icon slot="icon-only" name="cart" style="color:rgb(203, 177, 131)"></ion-icon>
@@ -54,9 +56,9 @@
           <p>Manufacturer: {{product.mnf}}</p>
           <p>Price: {{product.priceString}}</p>
           <div> <!--class="button-bar bar-stable">-->
-            <ion-button class="button" (click)=addToCart()>Add to Cart +</ion-button>
-            <ion-button color="success" block outline> {{qtyInCart}} </ion-button>
-            <ion-button class="button" (click)=removeFromCart() color="danger">- Remove</ion-button>
+            <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=addToCart()>Add to Cart +</ion-button>
+            <ion-button  style="color:rgb(203, 177, 131); --background:rgb(124, 245, 124);" block outline> {{qtyInCart}} </ion-button>
+            <ion-button class="button" (click)=removeFromCart() style="color:rgb(203, 177, 131); --background:rgb(235, 72, 72);">- Remove</ion-button>
           </div>
           <p>Sub Total for this Item = {{itemsPrice | currency:'USD':'symbol'}}</p>
         </ion-card-content>
@@ -76,11 +78,11 @@
       
       <ion-row>
           <ion-item>
-          <ion-button icon-left clear small class="action-button">
-            <ion-icon name="thumbs-up"></ion-icon>
+          <ion-button icon-left clear small class="action-button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);">
+            <ion-icon style="color:rgb(203, 177, 131);" name="thumbs-up"></ion-icon>
             <div>12 Likes</div>
           </ion-button>
-          <ion-button icon-left clear small>
+          <ion-button icon-left clear small style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);">
             <ion-icon name="text"></ion-icon>
             <div>4 Comments</div>
           </ion-button>

@@ -19,9 +19,10 @@
     </ion-title>
 
     <ion-buttons slot="end">
-      <ion-button tappable routerLink="/home">
+      <!-- <ion-button tappable routerLink="/home">
           <ion-icon slot="icon-only" name="home" style="color:rgb(203, 177, 131)"></ion-icon>
       </ion-button>
+      -->
 
       <ion-button tappable routerLink="/shopping-cart/">
         <ion-badge>{{ qtyItems }}</ion-badge>
@@ -39,7 +40,7 @@
 <ion-item>
   <div *ngIf="(qtyItems > 0 && ageVerified); else notShow">
     Cart Sub Total for {{qtyItems}} Item(s) = {{ totalCost | currency:'USD':'symbol' }}.
-    <ion-button block tappable routerLink="/check-out">Proceed To Checkout</ion-button>
+    <ion-button block tappable routerLink="/check-out" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);">Proceed To Checkout</ion-button>
   </div>
   <ng-template #notShow>
       <div *ngIf="(ageVerified); else notAge">
@@ -47,7 +48,7 @@
       </div>
       <ng-template #notAge>
         Please verify your age and login to checkout
-        <ion-button block tappable routerLink="/login">Login</ion-button>
+        <ion-button block tappable routerLink="/login"  style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);">Login</ion-button>
       </ng-template> 
   </ng-template>
 </ion-item>
@@ -68,9 +69,9 @@
         <p>Price: {{item.price | currency:'USD':'symbol'}} x {{cartItems[i].quantity}} = {{itemTotal[i] | currency:'USD':'symbol'}}</p>
  
         <div> <!--class="button-bar bar-stable">-->
-          <ion-button class="button" (click)=addToCart(item)>Add to Cart +</ion-button>
-          <ion-button color="success" block outline> {{cartItems[i].quantity}} </ion-button>
-          <ion-button class="button" (click)=removeFromCart(item) color="danger">- Remove</ion-button>
+          <ion-button class="button" (click)=addToCart(item)  style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);">Add to Cart +</ion-button>
+          <ion-button block outline  style="color:rgb(203, 177, 131); --background:rgb(124, 245, 124);"> {{cartItems[i].quantity}} </ion-button>
+          <ion-button class="button" (click)=removeFromCart(item)  style="color:rgb(203, 177, 131); --background:rgb(235, 72, 72);">- Remove</ion-button>
         </div>
 <!--      <ion-buttons>
             <ion-button class="button" (click)=addToCart(item)>Add to Cart +</ion-button>

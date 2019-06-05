@@ -12,9 +12,11 @@ export class GlobalService {
   constructor() {}
 
   getAgeVerified() {
+    console.log("in global service - get ageVerified = ", this.ageVerified);
     return this.ageVerified;
   }
   setAgeVerified(v: boolean) {
+    console.log("in global service - set ageVerified = ", v);
     this.ageVerified = v;
   }
 
@@ -22,6 +24,7 @@ export class GlobalService {
     return this.userName;
   }
   setUserName(n: string) {
+    console.log("in global service - set userName = ", this.ageVerified);
     this.userName = n;
   }
 
@@ -29,6 +32,7 @@ export class GlobalService {
     return this.password;
   }
   setPassword(p: string) {
+    console.log("in global service - set password = ", this.ageVerified);
     this.password = p;
   }
 }

@@ -42,8 +42,6 @@ export class Tab1Page implements OnInit {
     console.log("we are here in the filter")
     this.qtyItems = this.cartItemService.getQtyCartItems();
     console.log("tab1 onInit qtyItems = ", this.qtyItems);
-
-    this.getUserName();
   });
 
   //  this.extractsToggle = true;
@@ -80,9 +78,10 @@ export class Tab1Page implements OnInit {
   }
 
   getUserName() {
+    console.log("In Tab1 - getUserName")
     this.userName = this.globalService.getUserName();
     if(this.userName.length > 0)
-    this.loggedIn = true;
+      this.loggedIn = true;
   }
 
   toggleAR() {
@@ -112,6 +111,8 @@ export class Tab1Page implements OnInit {
   ionViewWillEnter() {
     this.qtyItems = this.cartItemService.getQtyCartItems();
     console.log("tab1 onViewWillEnter qtyItems = ", this.qtyItems);
+
+    this.getUserName();
   }
 
   ionViewDidEnter() {

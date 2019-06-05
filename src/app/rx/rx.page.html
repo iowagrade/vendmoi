@@ -1,7 +1,11 @@
 <ion-header>
     <ion-toolbar class="themeColor" style="color:rgb(44, 70, 105);">
       <ion-buttons slot="start">
-        <!--<ion-menu-toggle>  rgb 69, 80, 98-->
+        <ion-button>
+          <ion-back-button text="" (click)=gotoPreviousPage() defaultHref="/home" style="color:rgb(203, 177, 131)"></ion-back-button>
+        </ion-button>
+  
+          <!--<ion-menu-toggle>  rgb 69, 80, 98-->
         <ion-menu-button>
           <ion-button>
             <ion-icon slot="icon-only" name="menu" style="color:rgb(203, 177, 131)"></ion-icon>
@@ -20,6 +24,14 @@
           <ion-icon slot="icon-only" name="cart" style="color:rgb(203, 177, 131)"></ion-icon>
         </ion-button>
       </ion-buttons> -->
+
+      <ion-buttons slot="end">
+        <ion-button tappable routerLink="/shopping-cart/">
+        <ion-badge>{{ qtyItems }}</ion-badge>
+        <ion-icon slot="icon-only" name="cart" style="color:rgb(203, 177, 131)"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
     </ion-toolbar>
   </ion-header>
   
@@ -52,11 +64,11 @@
         
         <ion-row>
             <ion-item>
-            <ion-button icon-left clear small class="action-button">
+            <ion-button icon-left clear small class="action-button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);">
               <ion-icon name="thumbs-up"></ion-icon>
               <div>12 Likes</div>
             </ion-button>
-            <ion-button icon-left clear small>
+            <ion-button icon-left clear small  style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);">
               <ion-icon name="text"></ion-icon>
               <div>4 Comments</div>
             </ion-button>

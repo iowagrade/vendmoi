@@ -17,12 +17,13 @@ export class LoginPage implements OnInit {
   constructor(public globalService: GlobalService) { }
 
   ngOnInit() {
-    console.log("global age verified = ", this.globalService.getAgeVerified());
+    console.log("Enter Login ngOnOnit global age verified = ", this.globalService.getAgeVerified());
     this.ageVerified = this.globalService.getAgeVerified();
   }
 
   checkAgeVerify() {
-    //this.ageVerified = !this.ageVerified;
+    this.ageVerified = !this.ageVerified;
+    console.log("In Login - ageVerified set to ", this.ageVerified);
     this.globalService.setAgeVerified(this.ageVerified);
 //    this.ageVerify = !this.ageVerified;
     this.globalService.setUserName(this.userName);
