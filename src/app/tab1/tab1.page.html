@@ -54,14 +54,14 @@
     <ion-row nowrap>
     <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=toggleFlowers() [fill]="flowersToggle?'solid':'clear'">Flowers</ion-button>
     <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=toggleEdibles() [fill]="ediblesToggle?'solid':'clear'">Edibles</ion-button>
-    <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=toggleExtracts() [fill]="extractsToggle?'solid':'clear'">Extracts</ion-button>
+    <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=toggleExtracts() [fill]="extractsToggle?'solid':'clear'">Oils</ion-button>
     <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=toggleAccessories() [fill]="accessoriesToggle?'solid':'clear'">Accessories</ion-button>
     <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=togglePetCare() [fill]="petCareToggle?'solid':'clear'">Paws</ion-button>
   </ion-row>
   </div>
 
   <ion-list-header>
-    <ion-label style="font-size:30px">Products</ion-label>
+    <ion-label style="font-size:20px">Products</ion-label>
   </ion-list-header>
   <ion-list>
     <div *ngFor="let product of products" detail="true" tappable routerLink="/product-detail/{{ product.id }}">
