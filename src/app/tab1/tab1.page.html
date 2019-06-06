@@ -24,14 +24,17 @@
 
 <ion-content>
   <ion-buttons>
-    <ion-button class="button" (click)=toggleAR() [fill]="arToggle?'solid':'outline'">View AR Window</ion-button>
+    <ion-button class="button" (click)=toggleAR() [fill]="arToggle?'solid':'outline'" style="color:rgb(44, 70, 105)">View AR Window</ion-button>
+  <!--
     <div *ngIf="(loggedIn); else notLoggedIn">
         <ion-button class="buttonRight">{{userName}} logged In</ion-button>
     </div>
     <ng-template #notLoggedIn>
-      <ion-button class="buttonRight"  tappable routerLink="/login/">Login</ion-button>
+      <ion-button class="buttonRight" tappable routerLink="/login/" style="color:rgb(44, 70, 105)">Login</ion-button>
     </ng-template>
+  -->
   </ion-buttons>
+
 
   <div *ngIf="(arToggle); else notShow">
     <iframe allow="camera;microphone" sandbox="allow-same-origin allow-scripts" class="theCanvas" src="../../assets/iframe-ar.html"></iframe>
@@ -52,12 +55,41 @@
 
   <div class="button-bar bar-stable" style="text-align:center; overflow:hidden; overflow-x:auto; width:100%;">
     <ion-row nowrap>
-    <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=toggleFlowers() [fill]="flowersToggle?'solid':'clear'">Flowers</ion-button>
-    <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=toggleEdibles() [fill]="ediblesToggle?'solid':'clear'">Edibles</ion-button>
-    <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=toggleExtracts() [fill]="extractsToggle?'solid':'clear'">Oils</ion-button>
-    <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=toggleAccessories() [fill]="accessoriesToggle?'solid':'clear'">Accessories</ion-button>
-    <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=togglePetCare() [fill]="petCareToggle?'solid':'clear'">Paws</ion-button>
-  </ion-row>
+    <div *ngIf="(flowersToggle); else notFlowers">
+      <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=toggleFlowers()>Flowers</ion-button>
+    </div>
+    <ng-template #notFlowers>
+        <ion-button class="button" style="color:rgb(203, 177, 131); --background:clear;" (click)=toggleFlowers()>Flowers</ion-button>
+    </ng-template> 
+     
+    <div *ngIf="(ediblesToggle); else notEdibles">
+      <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=toggleEdibles()>Edibles</ion-button>
+    </div>
+    <ng-template #notEdibles>
+      <ion-button class="button" style="color:rgb(203, 177, 131); --background:clear;" (click)=toggleEdibles()>Edibles</ion-button>
+    </ng-template> 
+
+    <div *ngIf="(extractsToggle); else notExtracts">
+      <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=toggleExtracts()>Oils</ion-button>
+    </div>
+    <ng-template #notExtracts>
+      <ion-button class="button" style="color:rgb(203, 177, 131); --background:clear;" (click)=toggleExtracts()>Oils</ion-button>
+    </ng-template> 
+
+    <div *ngIf="(accessoriesToggle); else notAccessories">
+      <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=toggleAccessories()>Accessories</ion-button>
+    </div>
+    <ng-template #notAccessories>
+      <ion-button class="button" style="color:rgb(203, 177, 131); --background:clear;" (click)=toggleAccessories()>Accessories</ion-button>
+    </ng-template> 
+  
+    <div *ngIf="(pawsToggle); else notPaws">
+      <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=togglePaws()>Paws</ion-button>
+    </div>
+    <ng-template #notPaws>
+      <ion-button class="button" style="color:rgb(203, 177, 131); --background:clear;" (click)=togglePaws()>Paws</ion-button>
+    </ng-template> 
+    </ion-row>
   </div>
 
   <ion-list-header>
@@ -66,13 +98,16 @@
   <ion-list>
     <div *ngFor="let product of products" detail="true" tappable routerLink="/product-detail/{{ product.id }}">
       <div *ngIf="(((product.type === 'FL') && flowersToggle) || ((product.type === 'ED') && ediblesToggle) ||
-                                                                 ((product.type === 'EX') && extractsToggle))">
+                  ((product.type === 'EX') && extractsToggle) || ((product.type === 'AC') && accessoriesToggle) ||
+                  ((product.type === 'PA') && pawsToggle))">
         <ion-item class="item item-avatar">
             <!-- <img width="100" height="60" src="..\..\assets\imgs\{{product.img1}}"> -->
             <img width="100" height="60" src="http://www.carbongeotech.com/vendmoi/assets/imgs/{{product.img1}}">
           <h3>{{product.name}}</h3>
-          <p>THC {{product.THC}}%</p>
-          <p>CBD {{product.CBD}}%</p>
+          <div *ngIf="(product.type != 'AC')">
+            <p>THC {{product.THC}}%</p>
+            <p>CBD {{product.CBD}}%</p>
+          </div>
           <p>{{product.priceString}}</p>
         </ion-item>
       </div>

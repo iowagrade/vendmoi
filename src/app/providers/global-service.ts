@@ -8,6 +8,7 @@ export class GlobalService {
   public ageVerified: boolean = false;
   public userName: string = "";
   public password: string = "";
+  public loggedIn: boolean = false;
 
   constructor() {}
 

@@ -9,6 +9,8 @@ import { RecommendService, Recommend } from '../providers/recommend-service';
 })
 export class RxPage {
 
+  qtyItems: number = 0;
+
   recommends: Recommend[];
   constructor(public recommendService: RecommendService) {
 

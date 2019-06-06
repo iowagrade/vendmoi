@@ -11,8 +11,9 @@ export class LoginPage implements OnInit {
   ageVerify: boolean = false;
   ageVerified: boolean = false;
 
-  userName: string = "John Doe";
-  password: string = "password_"
+  userName: string = "";
+  password: string = "";
+  haveUser: boolean = false;
 
   constructor(public globalService: GlobalService) { }
 
@@ -21,6 +22,22 @@ export class LoginPage implements OnInit {
     this.ageVerified = this.globalService.getAgeVerified();
   }
 
+  setUserName() {
+    console.log("in setUserName");
+
+    if(this.userName.length > 0 && this.password.length > 0 && this.ageVerified==true) {
+        console.log("have user");
+        this.haveUser = true;
+    }
+  }
+
+  setPassword() {
+    if(this.userName.length > 0 && this.password.length > 0 && this.ageVerified==true) {
+      console.log("have user");
+      this.haveUser = true;
+    }
+  }
+  
   checkAgeVerify() {
     this.ageVerified = !this.ageVerified;
     console.log("In Login - ageVerified set to ", this.ageVerified);
@@ -28,6 +45,10 @@ export class LoginPage implements OnInit {
 //    this.ageVerify = !this.ageVerified;
     this.globalService.setUserName(this.userName);
     this.globalService.setPassword(this.password);
+  
+    if(this.userName.length > 0 && this.password.length > 0 && this.ageVerified==true) {
+      console.log("have user");
+      this.haveUser = true;
+    }
   }
-
 }

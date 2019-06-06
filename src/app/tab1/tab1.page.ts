@@ -29,7 +29,7 @@ export class Tab1Page implements OnInit {
   ediblesToggle: boolean = true;
   extractsToggle: boolean = true;
   accessoriesToggle: boolean = true;
-  petCareToggle: boolean = true;
+  pawsToggle: boolean = true;
 
   constructor(/*private platform: Platform,*/public globalService: GlobalService,
     public cartItemService: CartItemService,  
@@ -104,8 +104,8 @@ export class Tab1Page implements OnInit {
     this.accessoriesToggle = !this.accessoriesToggle;
   }
 
-  togglePetCare() {
-    this.petCareToggle = !this.petCareToggle;
+  togglePaws() {
+    this.pawsToggle = !this.pawsToggle;
   }
 
   ionViewWillEnter() {

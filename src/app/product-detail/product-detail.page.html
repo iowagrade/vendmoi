@@ -2,10 +2,12 @@
   <ion-toolbar style="--background: rgb(44, 70, 105)">
 
     <ion-buttons slot="start">
+      <!--
       <ion-button>
         <ion-back-button text="" (click)=gotoPreviousPage() defaultHref="/home" style="color:rgb(203, 177, 131)"></ion-back-button>
       </ion-button>
-
+    -->
+    
       <ion-menu-button>
         <ion-button>
           <ion-icon slot="icon-only" name="menu" style="color:rgb(203, 177, 131)"></ion-icon>
@@ -51,8 +53,10 @@
         <ion-card-content>
           <h1>{{product.name}}</h1>
           <p>{{product.description}}</p>
-          <p>THC {{product.THC}}%</p>
-          <p>CBD {{product.CBD}}%</p>
+          <div *ngIf="(product.type != 'AC')">
+            <p>THC {{product.THC}}%</p>
+            <p>CBD {{product.CBD}}%</p>
+          </div>
           <p>Manufacturer: {{product.mnf}}</p>
           <p>Price: {{product.priceString}}</p>
           <div> <!--class="button-bar bar-stable">-->

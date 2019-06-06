@@ -136,6 +136,34 @@ export class ProductService {
         type: 'ED',
         mnf: 'Chocolate Infusion, Inc.',
         img1: 'ED_whiteChocolate-01.jpg'
+      },
+      {
+        id: '1007',
+        name: 'Water Pipe',
+        description: 'Colorful Water Pipe',
+        CBD: 'NA',
+        THC: 'NA',
+        rating: '4.5',
+        price: '29.50',
+        priceString: '$29.50',
+        qty: '0',
+        type: 'AC',
+        mnf: 'Pipes R Us, LLC.',
+        img1: 'AC_waterPipe-01.jpg'
+      },
+      {
+        id: '1008',
+        name: 'Dog Biscuit',
+        description: 'Dog Biscuit Infused with Medicinal CBD',
+        CBD: '10.6',
+        THC: '0.5',
+        rating: '4.2',
+        price: '2.50',
+        priceString: '$2.50 per 6 oz.',
+        qty: '0',
+        type: 'PA',
+        mnf: 'Edible Treats, Inc.',
+        img1: 'PA_dogTreat-01.jpg'
       }
     ];
     this.productsData.next(this.products);

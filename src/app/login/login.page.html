@@ -2,15 +2,18 @@
   <ion-toolbar style="--background: rgb(44, 70, 105)">
 
     <ion-buttons slot="start">
-      <ion-button>
+    <!--      <ion-button>
         <ion-back-button text="" defaultHref="/home" style="color:rgb(203, 177, 131)"></ion-back-button>
       </ion-button>
+    -->
 
+    <div *ngIf=(haveUser)>
       <ion-menu-button>
         <ion-button>
         <ion-icon slot="icon-only" name="menu" style="color:rgb(203, 177, 131)"></ion-icon>
         </ion-button>
       </ion-menu-button>
+      </div>
     </ion-buttons>
 
     <ion-title>
@@ -19,9 +22,11 @@
     </ion-title>
 
     <ion-buttons slot="end">
-      <ion-button tappable routerLink="/home">
+      <div *ngIf=(haveUser)>
+        <ion-button tappable routerLink="/home">
           <ion-icon slot="icon-only" name="home" style="color:rgb(203, 177, 131)"></ion-icon>
-      </ion-button>
+        </ion-button>
+      </div>
     </ion-buttons>
 
   </ion-toolbar>
@@ -35,11 +40,11 @@
     <ion-list>
       <ion-item lines="none">
         <ion-label position="stacked">Username or Phone #</ion-label>
-        <ion-input [(ngModel)]="userName" class="input" type="text" placeholder="John Doe"></ion-input>
+        <ion-input [(ngModel)]="userName" (change)=setUserName() class="input" type="text"></ion-input>
       </ion-item>
       <ion-item lines="none">
         <ion-label class="label" position="stacked">Password</ion-label>
-        <ion-input [(ngModel)]="password" class="input" placeholder="password_"></ion-input>
+        <ion-input [(ngModel)]="password" (change)=setPassword() class="input"></ion-input>
       </ion-item>
     </ion-list>
   </div>
@@ -53,10 +58,10 @@
       </ion-label>
     </ion-item>
   </ion-card>
-  <div *ngIf="(ageVerified); else notShow">
+  <div *ngIf="(haveUser); else notShow">
     <ion-button class="cbutton" tappable routerLink="/home"  style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);">Login</ion-button>
   </div>
   <ng-template #notShow>
-    <ion-button class="cbutton2" color="medium">Login</ion-button>
+    <ion-button class="cbutton2" color="medium" style="color:rgb(44, 70, 105)">Login</ion-button>
   </ng-template>
 </ion-content>
