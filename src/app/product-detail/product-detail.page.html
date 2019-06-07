@@ -7,7 +7,7 @@
         <ion-back-button text="" (click)=gotoPreviousPage() defaultHref="/home" style="color:rgb(203, 177, 131)"></ion-back-button>
       </ion-button>
     -->
-    
+
       <ion-menu-button>
         <ion-button>
           <ion-icon slot="icon-only" name="menu" style="color:rgb(203, 177, 131)"></ion-icon>
@@ -15,7 +15,7 @@
       </ion-menu-button>
     </ion-buttons>
 
-    <ion-title>
+    <ion-title style="padding: 7px;">
       <!-- <img src="..\..\assets\vm_logo-04.png"> -->
       <img src="http://www.carbongeotech.com/vendmoi/assets/vm_logo-04.png">
     </ion-title>
@@ -27,8 +27,8 @@
       -->
 
     <ion-button tappable routerLink="/shopping-cart/">
-        <ion-badge>{{ qtyItems }}</ion-badge>
-        <ion-icon slot="icon-only" name="cart" style="color:rgb(203, 177, 131)"></ion-icon>
+        <ion-badge style="--background:rgb(203, 177, 131); color:rgb(44, 70, 105);">{{ qtyItems }}</ion-badge>
+        <ion-icon slot="icon-only" name="cart" style="color:rgb(203, 177, 131); padding:9px;"></ion-icon>
       </ion-button>
     </ion-buttons>
 
