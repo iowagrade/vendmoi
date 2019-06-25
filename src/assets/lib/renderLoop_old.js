@@ -233,6 +233,7 @@ function main() {
                 //markerRoot.add(mesh2);
                 //scene.add(gltf.scene);
             }, undefined, function (error) {
+                console.log("there was an error loading chocolate bar");
                 console.error(error);
             });
 

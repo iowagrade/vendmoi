@@ -12,11 +12,22 @@
     height: 30px;
 }
 
+.logo {
+    display: block;        
+    //border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
 .group  {
     //border: 3px rgb(86, 10, 10) solid;
     //padding: 3px;
-    //display: block;        
+    display: block;        
     //border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }   
 
 .cbutton {

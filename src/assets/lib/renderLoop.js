@@ -194,8 +194,10 @@ function main() {
         if (productsVisible == 0)
             _scene.visible = _camera.visible
 
-        if (_camera.visible && !productsVisible)
+        if (_camera.visible && !productsVisible) {
+            console.log("products set to visible");
             productsVisible = 1;
+        }
     })
 
 
@@ -205,8 +207,10 @@ function main() {
 
     var markerControls = new THREEx.ArMarkerControls(arToolkitContext, _camera, {
         type: 'pattern',
-        patternUrl: './data/vm2.patt',
-        // patternUrl: THREEx.ArToolkitContext.baseURL + 'data/patt.hiro',
+        // patternUrl: './patt.hiro',
+        patternUrl: './vm2.patt',
+        // patternUrl: './data/vm2.patt',
+        // patternUrl: THREEx.ArToolkitContext.baseURL + './assets/data/patt.hiro',
         // bwadd patternUrl: THREEx.ArToolkitContext.baseURL + '../data/data/patt.hiro',
         // patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.kanji',
         // as we controls the camera, set changeMatrixMode: 'cameraTransformMatrix'
@@ -236,17 +240,25 @@ function main() {
         // markerRoot.add( mesh );
 
         ; (function () {
+/*            var myScale = 1.0;
             var geometry = new THREE.TorusKnotGeometry(0.3, 0.1, 64, 16); // make it slightly larger for better view
             var material = new THREE.MeshNormalMaterial();
             var material = new THREE.MeshLambertMaterial();
             var mesh = new THREE.Mesh(geometry, material);
             mesh.castShadow = true;
             mesh.receiveShadow = true;
-            mesh.position.y = -0.7
-            mesh.scale.x = 0.1;
-            mesh.scale.y = 0.1;
-            mesh.scale.z = 0.1;
-    ///////        markerRoot.add(mesh);
+            mesh.position.y = -0.15
+            mesh.scale.x = myScale;
+            mesh.scale.y = myScale;
+            mesh.scale.z = myScale;
+            var ob = new THREE.Object3D();
+            mesh.name = "Weed Bud";
+            _bud = mesh;
+            ob.add(mesh);
+            ob.userData = { objName: "Weed Bud" };
+            groupProducts.add(ob);
+            _objects.push(ob);
+            //markerRoot.add(mesh);
             // point the directionalLight to the marker
             directionalLight.target = mesh
 
@@ -254,9 +266,77 @@ function main() {
                 mesh.rotation.x += 0.04;
             })
 
+            geometry = new THREE.ConeGeometry(0.3, 0.5, 8);
+            mesh = new THREE.Mesh(geometry, material);
+            mesh.position.x = 1.2;
+            mesh.position.y = -0.15;
+            mesh.scale.x = myScale;
+            mesh.scale.y = myScale;
+            mesh.scale.z = myScale;
+            var ob = new THREE.Object3D();
+            _bud = mesh;
+            ob.add(mesh);
+            ob.userData = { objName: "Milk Chocolate Bar" };
+            groupProducts.add(ob);
+            _objects.push(ob);
+            //markerRoot.add(mesh);
+
+            geometry = new THREE.IcosahedronGeometry(0.3, 0);
+            mesh = new THREE.Mesh(geometry, material);
+            mesh.position.x = -1.0;
+            mesh.position.y = -0.15;
+            mesh.scale.x = myScale;
+            mesh.scale.y = myScale;
+            mesh.scale.z = myScale;
+            var ob = new THREE.Object3D();
+            _bud = mesh;
+            ob.add(mesh);
+            ob.userData = { objName: "White Chocolate Bar" };
+            groupProducts.add(ob);
+            _objects.push(ob);
+            //markerRoot.add(mesh);
+
+            var points = [];
+            for ( var i = 0; i < 10; i ++ ) {
+                points.push( new THREE.Vector2( Math.sin( i * 0.2 ) * 10 + 5, ( i - 5 ) * 2 ) );
+            }
+            var geometry = new THREE.LatheGeometry( points );            geometry = new THREE.ConeGeometry(0.3, 0.5, 8);
+            mesh = new THREE.Mesh(geometry, material);
+            mesh.position.x = -2.2;
+            mesh.position.y = -0.15;
+            mesh.scale.x = myScale;
+            mesh.scale.y = myScale;
+            mesh.scale.z = myScale;
+            var ob = new THREE.Object3D();
+            _bud = mesh;
+            ob.add(mesh);
+            ob.userData = { objName: "Gummy Bears" };
+            groupProducts.add(ob);
+            _objects.push(ob);
+            //markerRoot.add(mesh);
+
+            geometry = new THREE.TorusGeometry(0.3, 0.05, 8, 50);
+            mesh = new THREE.Mesh(geometry, material);
+            mesh.position.x = 2.75;
+            mesh.position.y = -0.15;
+            mesh.scale.x = myScale;
+            mesh.scale.y = myScale;
+            mesh.scale.z = myScale;
+            var ob = new THREE.Object3D();
+            _bud = mesh;
+            ob.add(mesh);
+            ob.userData = { objName: "Infused Coconut Oil" };
+            groupProducts.add(ob);
+            _objects.push(ob);
+            //markerRoot.add(mesh);
+*/
+            
             // X: right y:out of screen z: down
             var loader = new THREE.GLTF2Loader();
-            loader.load('data/models/chocolatebar/MilkChocolate.gltf', function (gltf) {
+            console.log("Loading Milk Chocolate Bar");
+//            loader.load('data/models/chocolatebar/MilkChocolate2.glb', function (gltf) {
+              loader.load('data/models/chocolatebar/MilkChocolate.gltf', function (gltf) {
+//            loader.load('data/models/chocolatebar/myBox.gltf', function (gltf) {
                 var ii = 0;
                 console.log(gltf.scene);
                 var ob = gltf.scene.getObjectByName("Box001");
@@ -270,6 +350,10 @@ function main() {
                 var ch = ob.children[0];
                 //markerRoot.add(ob);
                 //ob.userData = { objId: 1000};
+
+                //_bud = ob;
+                //_bud.getWorldPosition(myPos);
+
                 ob.userData = { objName: "Milk Chocolate Bar" };
                 groupProducts.add(ob);
                 _objects.push(ob);
@@ -277,9 +361,11 @@ function main() {
                 //markerRoot.add(mesh2);
                 //scene.add(gltf.scene);
             }, undefined, function (error) {
+                console.log("error loading chocolate bar");
                 console.error(error);
             });
 
+            //loader.load('data/models/chocolatebar/WhiteChocolate.gltf', function (gltf) {
             loader.load('data/models/chocolatebar/WhiteChocolate.gltf', function (gltf) {
                 var ii = 0;
                 //var mesh2 = new THREE.Mesh(gltf.scene, material);
@@ -373,7 +459,7 @@ function main() {
                 console.error(error);
             });
 
-            loader.load('data/models/coconutoil/coconutoil.gltf', function (gltf) {
+            loader.load('data/models/coconutoil/coconutoil2.gltf', function (gltf) {
                 var ii = 0;
                 console.log(gltf.scene);
                 var groupOilJar = new THREE.Group
@@ -405,6 +491,7 @@ function main() {
             }, undefined, function (error) {
                 console.error(error);
             });
+
             groupProductsParent.add(groupProducts);
             markerRoot.add(groupProductsParent);
 
@@ -515,13 +602,28 @@ function main() {
         mouseDownPos.y = - ((event.clientY - clientRect.top) / clientRect.height) * 2 + 1;
 
         _mouse.x = _mouse.x * 1.0;
-        _raycaster.setFromCamera(_mouse, _camera);
+        //_raycaster.setFromCamera(_mouse, _camera);
+        //_raycaster.set(origin, direction)
+        var origin = new THREE.Vector3(0.30, -5.0, 1.0);
+        var direction = new THREE.Vector3(0.0, 1.0, 0.0);
+        var angle = mouseDownPos.x * 35 * 1.57 / 90;
+        direction.x = Math.tan(angle);
+        var bott = direction.x * direction.x + 1;
+        direction.y = direction.y / bott;
+        //direction.normalize();
+        _raycaster.set(origin, direction);
+
         //console.log("raycast pos = ", _raycaster.ray.origin.x, ",", _raycaster.ray.origin.y, ",", _raycaster.ray.origin.z, " dir = ", _raycaster.ray.direction.x, ",", _raycaster.ray.direction.y, ",", _raycaster.ray.direction.z);
+        _camera.getWorldPosition(cameraPos);
+        //console.log("cameraPos = ", cameraPos.x.toPrecision(3), ",", cameraPos.y.toPrecision(3), ",", cameraPos.z.toPrecision(3));
+        console.log("mousePos = ", mouseDownPos.x.toPrecision(3), ",", mouseDownPos.y.toPrecision(3));
+
         console.log("raycast posss = ", _raycaster.ray.origin.x.toPrecision(3), ",", _raycaster.ray.origin.y.toPrecision(3), ",", _raycaster.ray.origin.z.toPrecision(3), " dir = ", _raycaster.ray.direction.x.toPrecision(3), ",", _raycaster.ray.direction.y.toPrecision(3), ",", _raycaster.ray.direction.z.toPrecision(3));
 
         var intersects = _raycaster.intersectObjects(_objects, true);
 
         if (intersects.length > 0) {
+            console.log("intersected objects len = ", intersects.length);
 
             var object = intersects[0].object.parent;
             //var objId = object.userData.myId;

@@ -1472,6 +1472,7 @@
 
 	var marker_count = 0;
 	function addMarker(arId, url, callback) {
+		console.log("artoolkit.api.js ln 1475: loading marker ", url);
         var filename = '/marker_' + marker_count++;
 		ajax(url, filename, function() {
 			var id = Module._addMarker(arId, filename);

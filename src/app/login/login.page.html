@@ -17,8 +17,8 @@
     </ion-buttons>
 
     <ion-title>
-<!--        <img src="..\..\assets\vm_logo-04.png"> -->
-      <img style="padding: 12px;" src="http://www.carbongeotech.com/vendmoi/assets/vm_logo-04.png">
+        <img style="padding: 12px;" src="..\..\assets\vm_logo-04.png">
+      <!-- <img style="padding: 12px;" src="http://www.carbongeotech.com/vendmoi/assets/vm_logo-04.png"> -->
     </ion-title>
 
     <ion-buttons slot="end">
@@ -32,11 +32,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <div class="logo">
   <!-- <img src="..\..\assets\VM_marker-03.jpg"> -->
-  <img src="http://www.carbongeotech.com/vendmoi/assets/VM_logo_white-01.jpg">
+    <img src="http://www.carbongeotech.com/vendmoi/assets/VM_logo_white-01.jpg">
+  </div>
 
-  <div class="group">
+  <div class="logo">
     <ion-list>
       <ion-item lines="none">
         <ion-label position="stacked">Username or Phone #</ion-label>
@@ -58,7 +60,7 @@
       </ion-label>
     </ion-item>
   </ion-card>
-  <div *ngIf="(haveUser); else notShow">
+  <div class="logo" *ngIf="(haveUser); else notShow">
     <ion-button class="cbutton" tappable routerLink="/home"  style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);">Login</ion-button>
   </div>
   <ng-template #notShow>
