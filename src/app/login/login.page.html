@@ -35,7 +35,10 @@
 <ion-content>
   <div class="logo">
   <!-- <img src="..\..\assets\VM_marker-03.jpg"> -->
-    <img src="http://www.carbongeotech.com/vendmoi/assets/VM_logo_white-01.jpg">
+    <img style="display: block;  
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;" src="http://www.carbongeotech.com/vendmoi/assets/VM_logo_white-01.jpg">
   </div>
 
   <div class="logo">
@@ -46,7 +49,7 @@
       </ion-item>
       <ion-item lines="none">
         <ion-label class="label" position="stacked">Password</ion-label>
-        <ion-input [(ngModel)]="password" (change)=setPassword() class="input"></ion-input>
+        <ion-input [(ngModel)]="password" (change)=setPassword() class="input" type="password"></ion-input>
       </ion-item>
     </ion-list>
   </div>
