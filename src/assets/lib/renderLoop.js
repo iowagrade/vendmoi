@@ -341,7 +341,7 @@ function main() {
                 console.log(gltf.scene);
                 var ob = gltf.scene.getObjectByName("Box001");
                 console.log(ob);
-                ob.position.x = 1.2;
+ //bw when test single               ob.position.x = 1.2;
                 ob.position.y = -0.15;
                 //ob.position.z = .5;
                 ob.scale.x = 0.025;
@@ -365,6 +365,7 @@ function main() {
                 console.error(error);
             });
 
+    /*        
             //loader.load('data/models/chocolatebar/WhiteChocolate.gltf', function (gltf) {
             loader.load('data/models/chocolatebar/WhiteChocolate.gltf', function (gltf) {
                 var ii = 0;
@@ -491,7 +492,8 @@ function main() {
             }, undefined, function (error) {
                 console.error(error);
             });
-
+    */
+   
             groupProductsParent.add(groupProducts);
             markerRoot.add(groupProductsParent);
 
