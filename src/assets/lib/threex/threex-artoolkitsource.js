@@ -175,11 +175,11 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 	domElement.style.height = this.parameters.displayHeight+'px'
 
 	// check API is available
-	if (navigator.mediaDevices === undefined
-			|| navigator.mediaDevices.enumerateDevices === undefined
+	if (/*navigator.mediaDevices === undefined
+			|| */ navigator.mediaDevices.enumerateDevices === undefined
 			|| navigator.mediaDevices.getUserMedia === undefined  ){
-		if( navigator.mediaDevices === undefined )				var fctName = 'navigator.mediaDevices'
-		else if( navigator.mediaDevices.enumerateDevices === undefined )	var fctName = 'navigator.mediaDevices.enumerateDevices'
+		/*if( navigator.mediaDevices === undefined )				var fctName = 'navigator.mediaDevices'
+		else*/ if( navigator.mediaDevices.enumerateDevices === undefined )	var fctName = 'navigator.mediaDevices.enumerateDevices'
 		else if( navigator.mediaDevices.getUserMedia === undefined )		var fctName = 'navigator.mediaDevices.getUserMedia'
 		else console.assert(false)
 		onError({
