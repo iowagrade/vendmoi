@@ -343,7 +343,7 @@ function main() {
                 console.log(ob);
  //bw when test single               ob.position.x = 1.2;
                 ob.position.y = -0.15;
-                //ob.position.z = .5;
+                ob.position.z = .5;
                 ob.scale.x = 0.025;
                 ob.scale.y = 0.025;
                 ob.scale.z = 0.025;
