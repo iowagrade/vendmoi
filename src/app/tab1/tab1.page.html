@@ -38,7 +38,7 @@
 
 
   <div width="100%" height="256px" *ngIf="(arToggle); else notShow">
-    <iframe width="100%" height="256px" allow="camera;microphone" sandbox="allow-same-origin allow-scripts allow-modals" class="theCanvas" src="../../assets/iframe-ar.html"></iframe>
+    <iframe position="absolute" left="0" top="0" width="100%" height="100%" allow="camera;microphone" sandbox="allow-same-origin allow-scripts allow-modals" class="theCanvas" src="../../assets/iframe-ar.html"></iframe>
   </div>
   <ng-template #notShow>
 <!--    <img width="100%" height="256px" src="..\..\assets\THCCBDWallpaper-01.jpg">
