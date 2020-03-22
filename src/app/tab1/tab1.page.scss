@@ -6,6 +6,34 @@
   --background: rgb(44, 70, 105);  //(69,80,98);
   --goldColor: rgb(203, 177, 131);
 }
+#scanImage {
+  position: relative;
+  width: 376px;
+  height: 352px;
+  margin: 0px;
+}
+#scan-canvas {
+  position: relative;
+  width: 376px;
+  height: 352px;
+  margin: 0px;
+}
+#aCanvas {
+  position: relative;
+  //top: 0px;
+  //left: 0px;
+  //overflow: hidden;
+  //display: block;
+  z-index: 1000;
+  width: 376px;
+  height: 352px;
+/*  border: solid;
+  border-width: 0px;
+  color: #00FF00;*/
+  margin: 0px;
+  //background-color: transparent;
+}
+/*
 .theCanvas {
   position: relative;
   overflow: hidden;
@@ -18,6 +46,7 @@
   color: #00FF00;
   //background-color: transparent;
 }
+*/
 .buttonRight {
   //text-align: right;
   //display: flex;
