@@ -66,12 +66,12 @@ export class Tab1Page implements OnInit {
   scanText: string;
   newText: string;
   strErrCode: string;
-  _scanWindowWidth: number = 376;
-  _scanWindowHeight: number = 352;
+  _scanWindowWidth: number = 406;
+  _scanWindowHeight: number = 252;
   _scanWindowImage: HTMLDivElement; 
 
-  _bShow3d: boolean = false;
-  _b3dProducts: boolean = false;
+  _bShow3d: boolean = true;
+  _b3dProducts: boolean = true;
 
   _scene: THREE.Scene;
   _camera: THREE.PerspectiveCamera;
@@ -252,7 +252,9 @@ export class Tab1Page implements OnInit {
       //this.renderer.setSize( rect.width, rect.height );
       this._container.width = this._scanWindowWidth; // window.innerWidth;
       this._container.height = this._scanWindowWidth; //window.innerWidth * 0.75;
-      this._renderer.setSize( this._container.width, this._container.height );
+      ////this._renderer.setSize( this._container.width, this._container.height );
+      //this._renderer.setSize( this._container.clientWidth, this._container.clientHeight );
+      this._renderer.setSize( 376, 252 );
       //// this.renderer.setSize( window.innerWidth, window.innerHeight*0.75 );
       this._container.appendChild( this._renderer.domElement );
     }
@@ -263,13 +265,6 @@ export class Tab1Page implements OnInit {
   
     //this.buildXYZ();
   
-    /*this._groupProductsParent = new THREE.Group;
-    this._groupProducts = new THREE.Group;
-    this._markerRoot = new THREE.Group;
-    this._groupProductsParent.add(this._groupProducts);
-    this._markerRoot.add(this._groupProductsParent);
-    */
-
     // load 3d models
     this._groupProductsParent = new THREE.Group;
     this._groupProducts = new THREE.Group;
@@ -285,7 +280,7 @@ export class Tab1Page implements OnInit {
       this.loadModels();
 
     this._scene.add(this._markerRoot);
-  }
+   }
 
   start3D() {
 
