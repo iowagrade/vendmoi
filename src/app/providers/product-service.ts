@@ -83,7 +83,7 @@ export class ProductService {
       },
       {
         id: '1003',
-        name: 'CBD Coconut Oil',
+        name: 'Coconut Oil',
         description: 'CBD Infused Coconut Oil',
         CBD: '10.2',
         THC: '1.1',
@@ -111,7 +111,7 @@ export class ProductService {
       },
       {
         id: '1005',
-        name: 'Milk Chocolate Bar',
+        name: 'Milk Chocolate',
         description: 'Chocolate Cannabis Bar',
         CBD: '0.2',
         THC: '7.1',
@@ -137,7 +137,21 @@ export class ProductService {
         mnf: 'Chocolate Infusion, Inc.',
         img1: 'ED_whiteChocolate-01.jpg'
       },
-      {
+      /*{
+        id: '1007',
+        name: 'Red Gummy',
+        description: 'Cherry Gummy Bear',
+        CBD: '5.1',
+        THC: '0.2',
+        rating: '4.8',
+        price: '1.50',
+        priceString: '$1.50 per pc.',
+        qty: '0',
+        type: 'ED',
+        mnf: 'Tinctures R Us, LLC.',
+        img1: 'ED_redGummyBear-01.jpg'
+      },*/
+      /*{
         id: '1007',
         name: 'Water Pipe',
         description: 'Colorful Water Pipe',
@@ -150,7 +164,7 @@ export class ProductService {
         type: 'AC',
         mnf: 'Pipes R Us, LLC.',
         img1: 'AC_waterPipe-01.jpg'
-      },
+      },*/
       {
         id: '1008',
         name: 'Dog Biscuit',

@@ -8,7 +8,8 @@
 }
 #scanImage {
   position: relative;
-  width: 376px;
+//  width: 376px;
+  width: 100%;
   height: 252px;
   margin: 0px;
 }
@@ -58,9 +59,9 @@
   right: 0;
   top: 4px;
 }
-.button-bar::-webkit-scrollbar {
+//.button-bar::-webkit-scrollbar {
   //display: none;
-}
+//}
 div.scrollx {
   overflow: hidden; 
 }
@@ -95,3 +96,20 @@ div.scrollx {
   border: none;
   fill: clear;
 }
+
+.container {
+  display: flex;
+}
+.column {
+  flex: 1;
+  
+  /*for demo purposes only */
+  background: #f2f2f2;
+  border: 1px solid #e6e6e6;
+  box-sizing: border-box;
+}
+.column-left{ order: 1; width: 55%; }
+.column-space1{ order: 2; width: 1%; }
+.column-middle{ order: 3; width: 25%; }
+.column-space{ order: 4; width: 1%; }
+.column-right{ order: 5; width: 20%; }

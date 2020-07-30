@@ -75,7 +75,7 @@ export class Tab1Page implements OnInit {
 
   _scene: THREE.Scene;
   _camera: THREE.PerspectiveCamera;
-  _camPosDefault: THREE.Vector3 = new THREE.Vector3(0,0,10);
+  _camPosDefault: THREE.Vector3 = new THREE.Vector3(0,0,8);
   _camPosProduct: THREE.Vector3 = new THREE.Vector3(0,0,2.5);
   _renderer: THREE.WebGLRenderer;
   _container: any;
@@ -110,7 +110,8 @@ export class Tab1Page implements OnInit {
   _spriteGummyBears: THREE.Sprite;
   _spriteCoconutOil: THREE.Sprite;
   _spriteDogTreat: THREE.Sprite;
-  _spriteWaterPipe: THREE.Sprite;
+  //_spriteRedGummyBear: THREE.Sprite;
+  //_spriteWaterPipe: THREE.Sprite;
 
   _meshVendingMachine: THREE.Object3D;
   _meshMilkChocolate: THREE.Object3D;
@@ -120,7 +121,8 @@ export class Tab1Page implements OnInit {
   _meshGummyBears: THREE.Object3D;
   _meshCoconutOil: THREE.Object3D;
   _meshDogTreat: THREE.Object3D;
-  _meshWaterPipe: THREE.Object3D;
+  //_meshRedGummyBear: THREE.Object3D;
+  //_meshWaterPipe: THREE.Object3D;
 
   constructor(/*private platform: Platform,*/public globalService: GlobalService,
     public cartItemService: CartItemService,  
@@ -692,13 +694,21 @@ export class Tab1Page implements OnInit {
     this._spriteDogTreat.visible = true;
     this._groupSprites.add( this._spriteDogTreat );
 
-    texture = new THREE.TextureLoader().load( 'assets/imgs/ico_ac_waterPipe64-01.jpg' );
+    /*texture = new THREE.TextureLoader().load( 'assets/imgs/ico_ed_redGummyBear64-01.jpg' );
+    material = new THREE.SpriteMaterial( { map: texture } );
+    this._spriteRedGummyBear = new THREE.Sprite( material );
+    this._spriteRedGummyBear.name = "redGummyBear";
+    this._spriteRedGummyBear.position.set( 2, -2, 2 );
+    this._spriteRedGummyBear.visible = true;
+    this._groupSprites.add( this._spriteRedGummyBear );
+    */
+    /*texture = new THREE.TextureLoader().load( 'assets/imgs/ico_ac_waterPipe64-01.jpg' );
     material = new THREE.SpriteMaterial( { map: texture } );
     this._spriteWaterPipe = new THREE.Sprite( material );
     this._spriteWaterPipe.name = "waterPipe";
     this._spriteWaterPipe.position.set( 2, -2, 2 );
     this._spriteWaterPipe.visible = true;
-    this._groupSprites.add( this._spriteWaterPipe );
+    this._groupSprites.add( this._spriteWaterPipe );*/
 
     this._groupProducts.add( this._groupSprites );
   } // end - loadSprites
@@ -716,14 +726,15 @@ export class Tab1Page implements OnInit {
             this._meshGummyBears = new THREE.Object3D();
             this._meshCoconutOil = new THREE.Object3D();
             this._meshDogTreat = new THREE.Object3D();
-            this._meshWaterPipe = new THREE.Object3D();
+            //this._meshRedGummyBear = new THREE.Object3D();
+            //this._meshWaterPipe = new THREE.Object3D();
           
 
 
   
-            console.log("Loading Milk Chocolate Bar");
 //            loader.load('assets/data/models/chocolatebar/MilkChocolate2.glb', function (gltf) {
               loader.load('assets/data/models/chocolatebar/MilkChocolate.gltf', function (gltf) {
+                console.log("Loading Milk Chocolate Bar");
                 var ii = 0;
                 console.log(gltf.scene);
                 var ob = gltf.scene.getObjectByName("Box001");
@@ -748,7 +759,8 @@ export class Tab1Page implements OnInit {
 
             //loader.load('assets/data/models/chocolatebar/WhiteChocolate.gltf', function (gltf) {
             loader.load('assets/data/models/chocolatebar/WhiteChocolate2.gltf', function (gltf) {
-                var ii = 0;
+              console.log("Loading White Chocolate Bar");
+              var ii = 0;
                 console.log(gltf.scene);
                 var ob = gltf.scene.getObjectByName("Box001");
                 console.log(ob);
@@ -771,7 +783,8 @@ export class Tab1Page implements OnInit {
             });
 
             loader.load('assets/data/models/weedbud/weedbud.gltf', function (gltf) {
-                var ii = 0;
+              console.log("Loading Weed Bud");
+              var ii = 0;
                 console.log(gltf.scene);
                 var ob = gltf.scene.getObjectByName("Group38207");
                 console.log(ob);
@@ -800,7 +813,8 @@ export class Tab1Page implements OnInit {
             });
 
             loader.load('assets/data/models/redgummybear/gummybears.gltf', function (gltf) {
-                var ii = 0;
+              console.log("Loading Gummy Bears");
+              var ii = 0;
                 var groupGummy = new THREE.Group;
                 console.log(gltf.scene);
                 var ob = gltf.scene.getObjectByName("gummy_bear_red");
@@ -843,8 +857,9 @@ export class Tab1Page implements OnInit {
             });
 
             loader.load('assets/data/models/coconutoil/coconutoil2.gltf', function (gltf) {
+              console.log("Loading Coconut Oil");
               var ii = 0;
-              this._scene.add(gltf);
+      //        this._scene.add(gltf);
               console.log(gltf.scene);
               var groupOilJar = new THREE.Group
 
@@ -877,32 +892,58 @@ export class Tab1Page implements OnInit {
                 console.error(error);
             });
       
-            loaderObj.load('assets/data/models/bong/bong-01.obj', function (gltf) {
-                var ii = 0;
-                var ob = gltf.children[0];
-                var texture = new THREE.TextureLoader().load( 'assets/data/models/bong/rasta.jpg' );
-                ob.material.map = texture;
-
-                console.log(ob);
-                ob.position.x = 0; //-4;
-                ob.position.y = -0.75;
-                ob.position.z = 0.;
-                ob.rotation.x = 0.0;
-                ob.rotation.y = 1.57;
-                ob.scale.x = 0.5;
-                ob.scale.y = 0.5;
-                ob.scale.z = 0.5;
-                ob.userData = { objName: "bong" };
-                this._groupProducts.add(ob);
-                this._objects.push(ob);
-                this._meshWaterPipe = ob;
-                this._meshWaterPipe.visible = false;
-            }.bind(this), undefined, function (error) {
-                console.error(error);
-            });
-
-            loaderObj.load('assets/data/models/dogTreat/dog_biscuit.obj', function (gltf) {
+            /*loader.load('assets/data/models/redgummybear/gummybears.gltf', function (gltf) {
               var ii = 0;
+              var groupRedGummy = new THREE.Group;
+              console.log(gltf.scene);
+              var ob = gltf.scene.getObjectByName("gummy_bear_red");
+              //ob.userData = { objId: 1003 };
+              ob.userData = { objName: "Gummy Bears" };
+              groupRedGummy.add(ob);
+              this._objects.push(ob);
+              //markerRoot.add(ob);
+
+              groupRedGummy.position.x = 0; //-2.2;
+              groupRedGummy.position.y = 0.35;
+              groupRedGummy.rotation.x = 1.57;
+              groupRedGummy.scale.x = 0.25;
+              groupRedGummy.scale.y = 0.25;
+              groupRedGummy.scale.z = 0.25;
+
+              this._groupProducts.add(groupRedGummy);
+              this._meshGummyBears = groupRedGummy;
+              this._meshGummyBears.visible = false;
+            }.bind(this), undefined, function (error) {
+              console.error(error);
+          });
+
+          loaderObj.load('assets/data/models/bong/bong-01.obj', function (gltf) {
+            var ii = 0;
+            var ob = gltf.children[0];
+            var texture = new THREE.TextureLoader().load( 'assets/data/models/bong/rasta.jpg' );
+            ob.material.map = texture;
+
+            console.log(ob);
+            ob.position.x = 0; //-4;
+            ob.position.y = -0.75;
+            ob.position.z = 0.;
+            ob.rotation.x = 0.0;
+            ob.rotation.y = 1.57;
+            ob.scale.x = 0.5;
+            ob.scale.y = 0.5;
+            ob.scale.z = 0.5;
+            ob.userData = { objName: "bong" };
+            this._groupProducts.add(ob);
+            this._objects.push(ob);
+            this._meshWaterPipe = ob;
+            this._meshWaterPipe.visible = false;
+        }.bind(this), undefined, function (error) {
+            console.error(error);
+        });*/
+
+      loaderObj.load('assets/data/models/dogTreat/dog_biscuit.obj', function (gltf) {
+        console.log("Loading Dog Biscuit");
+        var ii = 0;
               var ob = gltf.children[0];
               var texture = new THREE.TextureLoader().load( 'assets/data/models/dogTreat/dog_biscuit_diffuse.jpg' );
               ob.material.map = texture;
@@ -1005,7 +1046,8 @@ export class Tab1Page implements OnInit {
           this._meshGummyBears.visible = false;
           this._meshCoconutOil.visible = false;
           this._meshDogTreat.visible = false;
-          this._meshWaterPipe.visible = false;
+          //this._meshRedGummyBear.visible = false;
+          //this._meshWaterPipe.visible = false;
         }
       }
     }
@@ -1044,10 +1086,14 @@ export class Tab1Page implements OnInit {
           // scroll list to item that was selected
           this.doScroller(8);
         }
-        else if(this._intersects[0].object.name == "waterPipe") {
+        /*else if(this._intersects[0].object.name == "redGummyBear") {
           // scroll list to item that was selected
           this.doScroller(7);
-        }
+        }*/
+        /*else if(this._intersects[0].object.name == "waterPipe") {
+          // scroll list to item that was selected
+          this.doScroller(7);
+        }*/
       }
       else { // show 3d products
         if(this._intersects[0].object.name == "milkChocolate") {
@@ -1162,7 +1208,23 @@ export class Tab1Page implements OnInit {
           this._camera.position.z = this._camPosProduct.z;
           this._camera.lookAt(0, 0, 0);
         } 
-        else if(this._intersects[0].object.name == "waterPipe") {
+        /*else if(this._intersects[0].object.name == "redGummyBear") {
+          // scroll list to item that was selected
+          this.doScroller(7);
+          // turn off product sprites
+          this._groupSprites.visible = false;
+          this._meshVendingMachine.visible = false;
+          // turn on sprite to revert to vending machine
+          this._spriteX.visible = true;
+          // turn on 3d object
+          this._meshRedGummyBear.visible = true;
+          // set camera to default position for viewing product
+          this._camera.position.x = this._camPosProduct.x;
+          this._camera.position.y = this._camPosProduct.y;
+          this._camera.position.z = this._camPosProduct.z;
+          this._camera.lookAt(0, 0, 0);
+        }*/
+        /*else if(this._intersects[0].object.name == "waterPipe") {
           // scroll list to item that was selected
           this.doScroller(7);
           // turn off product sprites
@@ -1177,7 +1239,7 @@ export class Tab1Page implements OnInit {
           this._camera.position.y = this._camPosProduct.y;
           this._camera.position.z = this._camPosProduct.z;
           this._camera.lookAt(0, 0, 0);
-        }
+        }*/
       } // end switch to showing 3d products 
     }    
   } // end - eventDown

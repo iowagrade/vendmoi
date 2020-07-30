@@ -26,16 +26,28 @@ export class LoginPage implements OnInit {
     console.log("in setUserName");
 
     if(this.userName.length > 0 && this.password.length > 0 && this.ageVerified==true) {
-        console.log("have user");
+      console.log("have user");
+      console.log("checking username and password");
+      if(this.userName == "vm" && this.password == "123" && this.ageVerified==true)
         this.haveUser = true;
+      else
+        this.haveUser = false;
     }
+    else
+      this.haveUser = false;
   }
 
   setPassword() {
     if(this.userName.length > 0 && this.password.length > 0 && this.ageVerified==true) {
       console.log("have user");
-      this.haveUser = true;
+      console.log("checking username and password");
+      if(this.userName == "vm" && this.password == "123" && this.ageVerified==true)
+        this.haveUser = true;
+      else
+        this.haveUser = false;
     }
+    else
+      this.haveUser = false;
   }
   
   checkAgeVerify() {
@@ -48,7 +60,13 @@ export class LoginPage implements OnInit {
   
     if(this.userName.length > 0 && this.password.length > 0 && this.ageVerified==true) {
       console.log("have user");
-      this.haveUser = true;
+      console.log("checking username and password");
+      if(this.userName == "vm" && this.password == "123" && this.ageVerified==true)
+        this.haveUser = true;
+      else
+        this.haveUser = false;
     }
+    else
+      this.haveUser = false;
   }
 }

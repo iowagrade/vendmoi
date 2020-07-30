@@ -27,7 +27,7 @@ export class ProductDetailPage implements OnInit {
 
   gotoPreviousPage() {
     console.log("productDetail go back");
-    this.navCtrl.navigateRoot("");
+    this.navCtrl.navigateRoot("/home");
   }
 
   ngOnInit() {

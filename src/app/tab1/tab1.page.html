@@ -71,8 +71,8 @@
         </ion-button>  
   </div>
 
-  <div class="button-bar bar-stable" style="text-align:center; overflow:hidden; overflow-x:auto; width:100%;">
-    <ion-row nowrap>
+  <div style="text-align:center; overflow:hidden; overflow-x:auto; width:100%;">
+    <ion-row nowrap style="align-items: center; text-align: center;">
     <div *ngIf="(flowersToggle); else notFlowers">
       <ion-button class="button" style="color:rgb(203, 177, 131); --background:rgb(44, 70, 105);" (click)=toggleFlowers()>Flowers</ion-button>
     </div>
@@ -119,16 +119,43 @@
       <div *ngIf="(((product.type === 'FL') && flowersToggle) || ((product.type === 'ED') && ediblesToggle) ||
                   ((product.type === 'EX') && extractsToggle) || ((product.type === 'AC') && accessoriesToggle) ||
                   ((product.type === 'PA') && pawsToggle))">
-        <ion-item class="item item-avatar">
+     <!--   <ion-item class="item item-avatar"> -->
+        <ion-item>
+          <ion-grid>
+            <ion-row>
             <!-- <img width="100" height="60" src="..\..\assets\imgs\{{product.img1}}">
             <img width="100" height="60" src="http://www.carbongeotech.com/vendmoi/assets/imgs/{{product.img1}}"> -->
-            <img width="100" height="60" src="https://iowagrade.github.io/vendmoi/assets/imgs/{{product.img1}}">
-          <h3>{{product.name}}</h3>
-          <div *ngIf="(product.type != 'AC')">
-            <p>THC {{product.THC}}%</p>
-            <p>CBD {{product.CBD}}%</p>
+            <img width="80" height="60" src="https://iowagrade.github.io/vendmoi/assets/imgs/{{product.img1}}">
+
+            <ion-col col=25><h3>{{product.name}}</h3></ion-col>
+            <div class="column-space1"></div>
+            <div class="column-middle">
+              <div *ngIf="(product.type != 'AC')">
+                <p>THC {{product.THC}}%</p>
+                <p>CBD {{product.CBD}}%</p>
+              </div>
+            </div>
+            <div class="column-space"></div>
+            <div class="column-right">
+                <p>{{product.priceString}}</p>
+            </div>
+    <!--  <div class="container">  
+            <div class="column-left"><h3>{{product.name}}</h3></div>
+            <div class="column-space1"></div>
+            <div class="column-middle">
+              <div *ngIf="(product.type != 'AC')">
+                <p>THC {{product.THC}}%</p>
+                <p>CBD {{product.CBD}}%</p>
+              </div>
+            </div>
+            <div class="column-space"></div>
+            <div class="column-right">
+                <p>{{product.priceString}}</p>
+            </div>
           </div>
-          <p>{{product.priceString}}</p>
+        -->
+        </ion-row>
+        </ion-grid>
         </ion-item>
       </div>
     </div>
