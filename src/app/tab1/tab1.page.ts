@@ -601,7 +601,7 @@ export class Tab1Page implements OnInit {
       ob.position.x = 0;
       ob.position.y = -3.15;
       ob.position.z = .5;
-      ob.scale.x = 0.025;
+      ob.scale.x = 0.035;
       ob.scale.y = 0.025;
       ob.scale.z = 0.035;
 
@@ -639,7 +639,7 @@ export class Tab1Page implements OnInit {
     material = new THREE.SpriteMaterial( { map: texture } );
     this._spriteMilkChocolate = new THREE.Sprite( material );
     this._spriteMilkChocolate.name = "milkChocolate";
-    this._spriteMilkChocolate.position.set( -2.75, 2.5, 2 );
+    this._spriteMilkChocolate.position.set( -3.10, 2.5, 2 );
     this._spriteMilkChocolate.visible = true;
     this._groupSprites.add( this._spriteMilkChocolate );
     //this._spriteMikChocolate.position.normalize();
@@ -658,7 +658,7 @@ export class Tab1Page implements OnInit {
     material = new THREE.SpriteMaterial( { map: texture } );
     this._spriteBuds01 = new THREE.Sprite( material );
     this._spriteBuds01.name = "buds01";
-    this._spriteBuds01.position.set( -2.75, 1, 2 );
+    this._spriteBuds01.position.set( -3.10, 1, 2 );
     this._spriteBuds01.visible = true;
     this._groupSprites.add( this._spriteBuds01 );
 
@@ -674,7 +674,7 @@ export class Tab1Page implements OnInit {
     material = new THREE.SpriteMaterial( { map: texture } );
     this._spriteGummyBears = new THREE.Sprite( material );
     this._spriteGummyBears.name = "gummyBears";
-    this._spriteGummyBears.position.set( -2.75, -0.5, 2 );
+    this._spriteGummyBears.position.set( -3.10, -0.5, 2 );
     this._spriteGummyBears.visible = true;
     this._groupSprites.add( this._spriteGummyBears );
 
@@ -690,7 +690,7 @@ export class Tab1Page implements OnInit {
     material = new THREE.SpriteMaterial( { map: texture } );
     this._spriteDogTreat = new THREE.Sprite( material );
     this._spriteDogTreat.name = "dogTreat";
-    this._spriteDogTreat.position.set( -2.75, -2, 2 );
+    this._spriteDogTreat.position.set( -3.10, -2, 2 );
     this._spriteDogTreat.visible = true;
     this._groupSprites.add( this._spriteDogTreat );
 
